@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../../static/accounts/css/style.css">
+    <link rel="stylesheet" href="../../../game/static/game/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,300;0,800;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="account__input">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <p><label for="username" class="account__label">Username</label><input class='account__field' type="text" name="username" id="username"></p>
+                <p><label for="password" class="account__label">Password</label><input class='account__field' type="password" name="password" id="password"></p>
+                <p><button type="submit" class="choice-btn">Let's go!</button></p>
+            </form>
+            <a href="/"><button class="choice-btn">Back</button></a>
+        </div> 
+    </div>
+</body>
+</html>
