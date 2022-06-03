@@ -1,0 +1,143 @@
+* {
+    color: #a3a29a;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background: #545c7e;
+    background: linear-gradient(90deg, #545c7e 30%, #545c7e 100%);
+    /* black: #282328
+      pink: #c56981
+      purple: #545c7e
+      beige: #a3a29a
+      darker: #32364a
+     */
+}
+
+.container {
+    vertical-align: middle;
+}
+
+.account__input {
+    font-size: 15px;
+    color: #c56981;
+    width: 800px;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.account__input:focus-visible {
+    outline: none;
+}
+
+.choice-btn {
+    background: none;
+    color: #a3a29a;
+    border-radius: 40px;
+    height: 50px;
+    width: 200px;
+    font-size: 10px;
+    box-shadow: 0 10px 20px #32364a;
+    transition: all 0.4s;
+    margin: 10px;
+}
+
+.choice-btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 10px 20px #32364a;
+}
+
+.account__submit:focus {
+    outline: none;
+}
+
+.account__field {
+    text-align: center;
+    border-radius: 10px;
+    background: none;
+    color: #32364a;
+}
+
+.account__label {
+    margin-right: 10px;
+
+}
+
+
+input[type=text], input[type=password] {
+    text-align: center;
+    border-radius: 10px;
+    background: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+}
+
+.choice-btn {
+    border-width: 4px;
+    border-style: solid;
+    border-color: #a3a29a #c56981 #c56981 #a3a29a;
+    background: none;
+}
+
+.choice_container {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.title {
+    color: #a3a29a;
+    margin-top: 250px;
+    font-size: 30px;
+    text-align: center;
+    height: 150px;
+}
+
+h1 {
+    height: 100px;
+  }
+  
+h1 span {
+position: relative;
+top: 10px;
+display: inline-block;
+animation: bounce .4s ease infinite alternate;
+font-family: 'Press Start 2P', cursive;
+font-size: 60px;
+color: #a3a29a;
+text-shadow: 0 1px 0 #c56981,
+                0 2px 0 #c56981,
+                0 3px 0 #c56981,
+                0 4px 0 #c56981,
+                0 5px 0 #c56981,
+                0 6px 0 transparent,
+                0 7px 0 transparent,
+                0 8px 0 transparent,
+                0 9px 0 transparent,
+                0 10px 10px #363e61;
+}
+
+h1 span:nth-child(2) { animation-delay: .1s; }
+h1 span:nth-child(3) { animation-delay: .2s; }
+h1 span:nth-child(4) { animation-delay: .3s; }
+h1 span:nth-child(5) { animation-delay: .4s; }
+h1 span:nth-child(6) { animation-delay: .5s; }
+
+
+@keyframes bounce {
+100% {
+    top: -10px;
+    text-shadow: 0 1px 0 #c56981,
+                0 2px 0 #c56981,
+                0 3px 0 #c56981,
+                0 4px 0 #c56981,
+                0 5px 0 #c56981,
+                0 6px 0 #c56981,
+                0 7px 0 #c56981,
+                0 8px 0 #c56981,
+                0 9px 0 #c56981,
+                0 50px 25px #363e61;
+    }
+}
