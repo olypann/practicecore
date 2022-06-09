@@ -28,6 +28,9 @@ class ChatConsumer(WebsocketConsumer):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
         print(self.scope)
+        print(self.scope["user"])
+        print(str(self.scope["user"]))
+
 
 
         # Send message to room group
