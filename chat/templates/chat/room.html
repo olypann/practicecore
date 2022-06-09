@@ -38,7 +38,8 @@
 
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
-            document.querySelector('#window1').value += (data.message + '\n');
+            console.log(data);
+            document.querySelector('#window1').value += (JSON.stringify(data.message) + '\n');
         };
 
         chatSocket.onclose = function (e) {
