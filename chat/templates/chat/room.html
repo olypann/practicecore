@@ -7,21 +7,19 @@
 </head>
 
 <body>
-    <!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send"> -->
 
-    
-
-    <div><textarea id="window1" cols="100" rows="6"></textarea></div>
+    <div>
+        <h2 id="username1"></h2>
+        <textarea id="window1" cols="100" rows="6"></textarea>
+    </div>
     <div><input id="message-input" type="text"></div>
     <div><input id="message-submit" type="button" value="Send"></div>
 
-    <div><textarea id="window2" cols="100" rows="6"></textarea></div>
+    <div>
+        <h2 id="username2"></h2>
+        <textarea id="window2" cols="100" rows="6"></textarea>
+    </div>
     {{ room_name|json_script:"room-name" }}
-
-
-
 
 
 
@@ -42,10 +40,10 @@
             console.log("the user is:");
             console.log("{{user}}");
             if ("{{user}}" === data.message.sender) {
-                document.querySelector('#window1').value += (JSON.stringify(data.message) + '\n');
+                document.querySelector('#window1').value += (JSON.stringify(data.message.text) + '\n');
             }
             else {
-                document.querySelector('#window2').value += (JSON.stringify(data.message) + '\n');
+                document.querySelector('#window2').value += (JSON.stringify(data.message.text) + '\n');
             }
         };
 

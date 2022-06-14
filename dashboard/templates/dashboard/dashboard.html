@@ -7,13 +7,40 @@
     <title>Dashboard</title>
 </head>
 <body>
+
     {% if user.is_authenticated %}
-        <a href="chat/1/">New Game!</a>
+        <p id="new_game_btn">New Game!</p>
         <a href="logout/">Logout!</a>
 
     {% else %}
         <a href="login/">Login</a>
     {% endif %}
 
+
+
+
+    <script>
+        document.querySelector('#new_game_btn').onclick = function(e) {
+                console.log('it works')
+                var data = new FormData();
+                data.append('user_id', '{{user_id}}');
+                fetch('/api/game/', {
+                    method: 'POST',
+                    headers: {
+                      'X-CSRFToken': '{{csrf_token}}',
+                    },
+                    body: data,
+                    credentials: "same-origin",
+                }).then(res=>{
+                    res.json().then(data=>{
+                        window.location.replace('/chat/' + data.id);
+                    });
+                    
+                });
+    
+            };
+    </script>
+
 </body>
 </html>
+
