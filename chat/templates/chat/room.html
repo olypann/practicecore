@@ -39,6 +39,9 @@
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
             console.log(data);
+            console.log("the user is:");
+            console.log("{{user.username}}", "{{user}}");
+            // if ()
             document.querySelector('#window1').value += (JSON.stringify(data.message) + '\n');
         };
 
