@@ -2,7 +2,7 @@ from django.shortcuts import render
 import random
 from .models import *
 from rest_framework.views import APIView
-from serializers import *
+from .serializers import *
 from rest_framework.response import Response
 
 
