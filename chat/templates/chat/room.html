@@ -40,9 +40,13 @@
             const data = JSON.parse(e.data);
             console.log(data);
             console.log("the user is:");
-            console.log("{{user.username}}", "{{user}}");
-            // if ()
-            document.querySelector('#window1').value += (JSON.stringify(data.message) + '\n');
+            console.log("{{user}}");
+            if ("{{user}}" === data.message.sender) {
+                document.querySelector('#window1').value += (JSON.stringify(data.message) + '\n');
+            }
+            else {
+                document.querySelector('#window2').value += (JSON.stringify(data.message) + '\n');
+            }
         };
 
         chatSocket.onclose = function (e) {
