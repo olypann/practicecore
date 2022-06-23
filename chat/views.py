@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 import random
 from .models import *
@@ -7,14 +8,17 @@ from rest_framework.response import Response
 
 
 
-def index(request):
-    return render(request, 'chat/index.html', {})
-
-
 def room(request, room_name):
-    return render(request, 'chat/room.html', {
-        'room_name': room_name
-    })
+    try:
+        game = Game.objects.get(room_name)
+
+        return render(request, 'chat/room.html', {
+            'room_name': room_name,
+            'game': game,
+        })
+
+    except:
+        return HttpResponse(f'game {room_name} not found!')
 
 class NewGameView(APIView):
     def post(self, request):
