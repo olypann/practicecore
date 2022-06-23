@@ -23,8 +23,10 @@
         document.querySelector('#new_game_btn').onclick = function(e) {
                 console.log('it works')
                 var data = new FormData();
-                console.log('{{user}}')
-                data.append('user_id', '{{user}}');
+                console.log('{{user.id}}')
+                console.log('{{user.user.id}}')
+
+                data.append('user_id', parseInt('{{user.id}}'));
                 fetch('/api/game/', {
                     method: 'POST',
                     headers: {
