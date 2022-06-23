@@ -23,7 +23,7 @@ from chat.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', dashboard, name='dashboard'),
-    path('chat/', include('chat.urls')),
+    path('game/', include('chat.urls')),
 
     path('api/game/', NewGameView.as_view()),
     path('signup/', signup_view, name='sign up'),

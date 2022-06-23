@@ -23,6 +23,7 @@
         document.querySelector('#new_game_btn').onclick = function(e) {
                 console.log('it works')
                 var data = new FormData();
+                console.log('{{user_id}}')
                 data.append('user_id', '{{user_id}}');
                 fetch('/api/game/', {
                     method: 'POST',
@@ -33,7 +34,7 @@
                     credentials: "same-origin",
                 }).then(res=>{
                     res.json().then(data=>{
-                        window.location.replace('/chat/' + data.id);
+                        // window.location.replace('/game/' + data.id);
                     });
                     
                 });
