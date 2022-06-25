@@ -21,7 +21,7 @@ def signup_view(request):
             Profile.objects.create(user=user)
             login(request, user)
             # return HttpResponse('<p>Successful</p><p><a href="/logout">Sign out</a></p>')
-            return render(request, 'dashboard/index.html')
+            return render(request, 'dashboard/dashboard.html')
     context = {'form': form}
     return render(request, 'accounts/signup.html', context=context)
 
