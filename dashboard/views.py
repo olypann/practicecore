@@ -10,7 +10,7 @@ from django.db.models import Q
 #     context = {}
 #     return render(request, 'dashboard/dashboard.html', context)
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def dashboard(request):
     profile = Profile.objects.get(user=request.user)
     games = Game.objects.filter(
