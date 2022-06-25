@@ -13,9 +13,11 @@ def room(request, room_name):
         print(room_name)
         game = Game.objects.get(id=int(room_name))
 
+        game_data = GameSerializer(game).data
+
         return render(request, 'chat/room.html', {
             'room_name': room_name,
-            'game': game,
+            'game': game_data,
         })
 
     except:
