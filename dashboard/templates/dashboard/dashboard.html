@@ -12,7 +12,7 @@
 
     {% if user.is_authenticated %}
         <p id="new_game_btn">New Game!</p>
-        <a href="logout/">Logout!</a>
+        <a href="/logout">Logout!</a>
 
         <div class='waiting_games'>
             <ul>
@@ -54,7 +54,7 @@
 
 
     {% else %}
-        <a href="login/">Login</a>
+        <a href="/login">Login</a>
     {% endif %}
 
 
