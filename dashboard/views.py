@@ -6,6 +6,7 @@ from django.db.models import Q
 
 
 
+
 @login_required(login_url='login')
 def dashboard(request):
     profile = Profile.objects.get(user=request.user)

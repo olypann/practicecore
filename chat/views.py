@@ -6,6 +6,8 @@ from rest_framework.views import APIView
 from .serializers import *
 from rest_framework.response import Response
 
+import datetime
+from django.utils.timezone import now
 
 
 def room(request, room_name):
