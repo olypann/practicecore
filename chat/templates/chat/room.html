@@ -13,8 +13,36 @@
     {% if game.status == "W" %}
         <div>waiting room</div>
 
-    {% elif game.status == "A" %}
 
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+        const chatSocket = new WebSocket(
+            'wss://'
+            + window.location.host
+            + '/ws/chat/'
+            + roomName
+            + '/'
+        );
+
+        chatSocket.onopen = function(e) {
+            console.log(e);
+        };
+
+        chatSocket.onmessage = function(e) {
+            console.log(';)');
+            const data = JSON.parse(e.data);
+            console.log(data);
+            window.location.reload();
+        }
+
+        chatSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+    
+    </script>
+    
+
+    {% elif game.status == "A" %}
 
         <div>
             <h2 id="username1"></h2>
