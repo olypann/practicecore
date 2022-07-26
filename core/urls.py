@@ -25,6 +25,15 @@ urlpatterns = [
     path('', dashboard, name='dashboard'),
     path('game/', include('chat.urls')),
 
+
+
+    # to do: make a view for this url
+    # path('api/game/<str:game_id>/', GameView.as_view()),
+    # path('api/game/<str:game_id>/addword/', GameWordView.as_view()),
+
+
+
+
     path('api/game/', NewGameView.as_view()),
     path('signup/', signup_view, name='sign up'),
     path('login/', login_view, name='login'),

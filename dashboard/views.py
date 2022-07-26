@@ -4,13 +4,9 @@ from chat.models import Profile, Game
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-# Create your views here.
-# def dashboard(request):
-#     # context = {'user': profile.user.username}
-#     context = {}
-#     return render(request, 'dashboard/dashboard.html', context)
 
-# @login_required(login_url='login')
+
+@login_required(login_url='login')
 def dashboard(request):
     profile = Profile.objects.get(user=request.user)
     games = Game.objects.filter(

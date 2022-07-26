@@ -86,6 +86,32 @@
                 });
     
             };
+
+
+        document.querySelectorAll('.join_game').forEach(function(join_game) {
+            join_game.onclick = function(e) {
+            console.log(e.target.id.split('--')[1], '{{ user_id }}');
+
+            var data = new FormData();
+            data.append('user_id', '{{user_id}}');
+            fetch('/api/game/' + e.target.id.split('--')[1] + '/', {
+                method: 'PUT',
+                headers: {
+                'X-CSRFToken': '{{csrf_token}}',
+                },
+                body: data,
+                credentials: "same-origin",
+            }).then(res=>{
+                res.json().then(data=>{
+                    
+                    window.location.replace('/game/' + data.id);
+                });
+                
+            });
+            
+            }
+        })
+
     </script>
 
 </body>
