@@ -11,7 +11,11 @@
     {{ game.status }}
 
     {% if game.status == "W" %}
-        <div>waiting room</div>
+        <div>
+            <div>waiting room</div>
+            {{ data.id|json_script:"room-name" }}
+        </div>
+
 
 
     <script>
