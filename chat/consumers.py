@@ -1,6 +1,7 @@
 import json
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
+from .models import *
 
 
 class ChatConsumer(WebsocketConsumer):
@@ -43,6 +44,26 @@ class ChatConsumer(WebsocketConsumer):
             self.room_group_name,
             self.channel_name
         )
+
+
+    def get_players(self):
+        game = Game.objects.filter(id=self.room_name)
+        if game:
+            print("the game was found")
+            game = game[0]
+            if game.player_2 is not None:
+                return (
+                    game.player_1.user.username,
+                    game.player_2.user.username,
+                )
+            if game.player_1 is not None:
+                return (
+                    game.player_1.user.username,
+                )
+        print("the game wasn't found")
+        return None
+
+
 
     # Receive message from WebSocket
     def receive(self, text_data):
