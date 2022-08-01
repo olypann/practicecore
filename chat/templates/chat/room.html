@@ -35,7 +35,7 @@
             const data = JSON.parse(e.data);
             console.log(data);
             window.location.reload();
-        }
+        };
 
         chatSocket.onclose = function(e) {
             console.error('Chat socket closed unexpectedly');

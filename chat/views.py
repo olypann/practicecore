@@ -25,6 +25,20 @@ def room(request, room_name):
     except:
         return HttpResponse(f'game {room_name} not found!')
 
+
+def game_view(request, game_id):
+    print('проверка вьюшки')
+    """
+    Если метод запроса это post(если функция принимает отправленное слово),
+    то достаются параметры данного слова(пользователь и само слово) из api используя вьюшку GameWordView
+    """
+
+    if request.method == 'GET':
+        #А так же достается id игры для того чтобы подставить его в ссылку страницы которую мы после отображаем
+        return render(request, 'chat/room.html', context={'data': {'id':game_id}})
+
+    
+
 class NewGameView(APIView):
     def post(self, request):
         print('waiting class 2')
@@ -95,6 +109,7 @@ class GameView(APIView):
         except Exception as e:
             return Response({'status': 'error',
                              'error': str(e)})
+
 
     def put(self, request, game_id):
         print('helloworldagain')
