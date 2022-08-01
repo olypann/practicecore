@@ -6,7 +6,7 @@ from channels.generic.websocket import WebsocketConsumer
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = 'chat_%s' % self.room_name
+        self.room_group_name = f'chat_{self.room_name}'
 
         self.user = self.scope["user"]
         self.user_room_name = f"notif_room_for_user_{self.user.id}"
@@ -62,7 +62,7 @@ class ChatConsumer(WebsocketConsumer):
         #         'message': {'text': f"{message}", 'type': 'success', 'sender': f"{self.sender}"},
         #     }
         # )
-        
+
         self.word_db = async_to_sync(self.get_word)(message)
         if self.word_db:
             if self.word_db["status"] == "error":
