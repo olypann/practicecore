@@ -9,6 +9,7 @@
 <body>
 
     {{ game.status }}
+    {{ room_name|json_script:"room-name" }}
 
     {% if game.status == "W" %}
         <div>
@@ -116,7 +117,7 @@
 
     {% endif %}
 
-    {{ room_name|json_script:"room-name" }}
+    
 
 
 
