@@ -8,6 +8,9 @@ class ChatConsumer(WebsocketConsumer):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
 
+        self.user = self.scope["user"]
+        self.user_room_name = f"notif_room_for_user_{self.user.id}"
+
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
@@ -15,6 +18,24 @@ class ChatConsumer(WebsocketConsumer):
         )
 
         self.accept()
+
+        players = self.get_players()
+        print(players)
+
+
+        if len(players) == 2:
+           async_to_sync(self.channel_layer.group_send)(
+                self.user_room_name,
+                {
+                    'type': 'chat_message',
+                    'message': {
+                        'current_player': self.user.username,
+                        'enemy': [p for p in players if p != self.user.username][0],
+                        'type': 'players',
+                    },
+                }
+            )
+            
 
     def disconnect(self, close_code):
         # Leave room group
