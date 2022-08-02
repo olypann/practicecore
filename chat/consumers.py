@@ -66,6 +66,21 @@ class ChatConsumer(WebsocketConsumer):
         return None
 
 
+    def get_word(self, word):
+        print(word)
+        print(self.room_name)
+        game = Game.objects.get(id=self.room_name)
+        category = game.task.category
+        player = Profile.objects.get(user=self.sender)
+        word_db = Word.objects.filter(word=word, category=category)
+
+        print(word_db, category, game, player)
+
+        if word == 'lyalyalya':
+            return {'status': 'startgame'}
+
+
+
 
     # Receive message from WebSocket
     def receive(self, text_data):
@@ -76,15 +91,6 @@ class ChatConsumer(WebsocketConsumer):
         self.sender = self.scope["user"]
 
 
-        # Send message to room group
-        # async_to_sync(self.channel_layer.group_send)(
-        #     self.room_group_name,
-        #     {
-        #         'type': 'chat_message',
-        #         # 'message': message
-        #         'message': {'text': f"{message}", 'type': 'success', 'sender': f"{self.sender}"},
-        #     }
-        # )
 
         self.word_db = self.get_word(message)
         if self.word_db:
@@ -115,8 +121,6 @@ class ChatConsumer(WebsocketConsumer):
                         'message': {'text': f"{message}", 'type': 'success', 'sender': f"{self.sender}"}
                     }
                 )
-
-
 
     # Receive message from room group
     def chat_message(self, event):

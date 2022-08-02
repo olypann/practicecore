@@ -82,6 +82,15 @@
                 else {
                     document.querySelector('#window2').value += (JSON.stringify(data.message.text) + '\n');
                 }
+
+
+                if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
+                    console.log(user, '{{data.player_2.user.username}}');
+                    message = 'lyalyalya'
+                    chatSocket.send(JSON.stringify({
+                        'message': message
+                    }));
+                }
             };
     
             chatSocket.onclose = function (e) {
