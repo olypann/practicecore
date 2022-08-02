@@ -5,7 +5,7 @@ from .models import *
 from rest_framework.views import APIView
 from .serializers import *
 from rest_framework.response import Response
-
+import requests
 import datetime
 from django.utils.timezone import now
 
@@ -33,9 +33,17 @@ def game_view(request, game_id):
     то достаются параметры данного слова(пользователь и само слово) из api используя вьюшку GameWordView
     """
 
+
     if request.method == 'GET':
         #А так же достается id игры для того чтобы подставить его в ссылку страницы которую мы после отображаем
-        return render(request, 'chat/room.html', context={'data': {'id':game_id}})
+        game_data = requests.get(f'https://practicecore.herokuapp.com/api/game/{game_id}')
+        game_data = game_data.json()
+        print(game_data)
+        print('проверка вьюшки после апи')
+        return render(request, 'chat/room.html', context={'data': game_data})
+
+    
+    
 
     
 
