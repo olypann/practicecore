@@ -1,7 +1,9 @@
 import json
+from channels.generic.websocket import AsyncWebsocketConsumer
+from .models import *
+from channels.db import database_sync_to_async
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from .models import *
 
 
 class ChatConsumer(WebsocketConsumer):
@@ -13,7 +15,7 @@ class ChatConsumer(WebsocketConsumer):
         self.user_room_name = f"notif_room_for_user_{self.user.id}"
 
         # Join room group
-        async_to_sync(self.channel_layer.group_add)(
+        self.channel_layer.group_add(
             self.room_group_name,
             self.channel_name
         )
@@ -25,7 +27,7 @@ class ChatConsumer(WebsocketConsumer):
 
 
         if len(players) == 2:
-           async_to_sync(self.channel_layer.group_send)(
+           self.channel_layer.group_send(
                 self.user_room_name,
                 {
                     'type': 'chat_message',
@@ -40,7 +42,7 @@ class ChatConsumer(WebsocketConsumer):
 
     def disconnect(self, close_code):
         # Leave room group
-        async_to_sync(self.channel_layer.group_discard)(
+        self.channel_layer.group_discard(
             self.room_group_name,
             self.channel_name
         )
@@ -113,10 +115,6 @@ class ChatConsumer(WebsocketConsumer):
                         'message': {'text': f"{message}", 'type': 'success', 'sender': f"{self.sender}"}
                     }
                 )
-
-
-
-
 
 
 
