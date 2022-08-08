@@ -79,6 +79,13 @@ class ChatConsumer(WebsocketConsumer):
         if word == 'lyalyalya':
             return {'status': 'startgame'}
 
+        else:
+            return {
+                'status': 'success',
+                'message': 'The word "{}" was successfully added to the game'.format(word)
+            }
+            
+
 
     # Receive message from WebSocket
     def receive(self, text_data):
