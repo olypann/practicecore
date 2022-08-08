@@ -70,6 +70,10 @@
                 roomName +
                 '/'
             );
+
+            chatSocket.onopen = function(e) {
+                console.log(e);
+            };
     
             chatSocket.onmessage = function (e) {
                 const data = JSON.parse(e.data);

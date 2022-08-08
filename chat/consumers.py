@@ -15,7 +15,7 @@ class ChatConsumer(WebsocketConsumer):
         self.user_room_name = f"notif_room_for_user_{self.user.id}"
 
         # Join room group
-        self.channel_layer.group_add(
+        async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
             self.channel_name
         )
@@ -27,7 +27,7 @@ class ChatConsumer(WebsocketConsumer):
 
 
         if len(players) == 2:
-           self.channel_layer.group_send(
+           async_to_sync(self.channel_layer.group_send)(
                 self.user_room_name,
                 {
                     'type': 'chat_message',
@@ -42,7 +42,7 @@ class ChatConsumer(WebsocketConsumer):
 
     def disconnect(self, close_code):
         # Leave room group
-        self.channel_layer.group_discard(
+        async_to_sync(self.channel_layer.group_discard)(
             self.room_group_name,
             self.channel_name
         )
@@ -80,8 +80,6 @@ class ChatConsumer(WebsocketConsumer):
             return {'status': 'startgame'}
 
 
-
-
     # Receive message from WebSocket
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
@@ -91,11 +89,10 @@ class ChatConsumer(WebsocketConsumer):
         self.sender = self.scope["user"]
 
 
-
         self.word_db = self.get_word(message)
         if self.word_db:
             if self.word_db["status"] == "error":
-                self.channel_layer.group_send(
+                async_to_sync(self.channel_layer.group_send)(
                     self.user_room_name,
                     {
                         'type': 'chat_message',
@@ -104,7 +101,7 @@ class ChatConsumer(WebsocketConsumer):
                 )
 
             elif self.word_db["status"] == "startgame":
-                self.channel_layer.group_send(
+                async_to_sync(self.channel_layer.group_send)(
                     self.room_group_name,
                     {
                         'type': 'chat_message',
@@ -114,7 +111,7 @@ class ChatConsumer(WebsocketConsumer):
 
             elif self.word_db["status"] == "success":
                 # Send message to room group
-                self.channel_layer.group_send(
+                async_to_sync(self.channel_layer.group_send)(
                     self.room_group_name,
                     {
                         'type': 'chat_message',
