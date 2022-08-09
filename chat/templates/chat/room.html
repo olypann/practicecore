@@ -19,6 +19,7 @@
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
         console.log(roomName);
+        console.log("carpet");
         const chatSocket = new WebSocket(
             'wss://'
             + window.location.host
@@ -32,6 +33,11 @@
         };
 
         chatSocket.onmessage = function(e) {
+            if (data.message.type === 'players') {
+                console.log('hello 1');
+            }
+
+
             console.log(';)');
             const data = JSON.parse(e.data);
             console.log(data);
@@ -76,6 +82,11 @@
             };
     
             chatSocket.onmessage = function (e) {
+                if (data.message.type === 'players') {
+                    console.log('hello 2');
+                }
+
+
                 const data = JSON.parse(e.data);
                 console.log(data);
                 console.log("the user is:");
@@ -87,15 +98,17 @@
                     document.querySelector('#window2').value += (JSON.stringify(data.message.text) + '\n');
                 }
 
-                if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
-                    console.log(user, '{{data.player_2.user.username}}');
-                    message = 'lyalyalya'
-                    chatSocket.send(JSON.stringify({
-                        'message': message
-                    }));
-                }
+                // if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
+                //     console.log(user, '{{data.player_2.user.username}}');
+                //     message = 'lyalyalya'
+                //     chatSocket.send(JSON.stringify({
+                //         'message': message
+                //     }));
+                // }
 
             };
+
+
     
             chatSocket.onclose = function (e) {
                 console.error('Chat socket closed unexpectedly');
