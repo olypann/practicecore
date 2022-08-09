@@ -81,7 +81,11 @@
 
             chatSocket.onopen = function(e) {
                 console.log(e);
-                if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
+                console.log('{{data.status}}');
+                console.log('{{data.player_2}}');
+                console.log('{{data.player_2.user.username}}');
+                
+                if ('{{data.status}}' == 'A'){
                     console.log("nice!");
                     chatSocket.send(JSON.stringify({
                         //как мы формировали сокеты раньше 
