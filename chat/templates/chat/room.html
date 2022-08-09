@@ -69,7 +69,8 @@
 
 
         <script>
-            console.log('{{data}}');
+            
+            console.log('{{game}}');
             const roomName = JSON.parse(document.getElementById('room-name').textContent);
     
             const chatSocket = new WebSocket(
@@ -82,11 +83,11 @@
 
             chatSocket.onopen = function(e) {
                 console.log(e);
-                console.log('{{data.status}}');
-                console.log('{{data.player_2}}');
-                console.log('{{data.player_2.user.username}}');
+                console.log('{{game.status}}');
+                console.log('{{game.player_2}}');
+                console.log('{{game.player_2.user.username}}');
                 
-                if ('{{data.status}}' == 'A'){
+                if ('{{game.status}}' == 'A'){
                     console.log("nice!");
                     chatSocket.send(JSON.stringify({
                         //как мы формировали сокеты раньше 

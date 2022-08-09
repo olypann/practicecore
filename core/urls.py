@@ -30,6 +30,8 @@ urlpatterns = [
     path('api/game/', NewGameView.as_view()),
     path('api/game/<str:game_id>/', GameView.as_view()),
 
+    
+
     path('signup/', signup_view, name='sign up'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view),
