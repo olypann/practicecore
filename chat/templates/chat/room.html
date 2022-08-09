@@ -81,6 +81,13 @@
 
             chatSocket.onopen = function(e) {
                 console.log(e);
+                if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
+                    console.log("nice!");
+                    chatSocket.send(JSON.stringify({
+                        //как мы формировали сокеты раньше 
+                        'message': 'lyalyalya'
+                    }));
+                }
             };
     
             chatSocket.onmessage = function (e) {
@@ -91,7 +98,7 @@
                 if (data.message.type === 'players') {
                     console.log('hello 2');
                 }
-                
+
                 console.log(data);
                 console.log("the user is:");
                 console.log("{{user}}");
