@@ -26,6 +26,7 @@ def room(request, room_name):
         return HttpResponse(f'game {room_name} not found!')
 
 
+
 def game_view(request, game_id):
     print('проверка вьюшки')
     """

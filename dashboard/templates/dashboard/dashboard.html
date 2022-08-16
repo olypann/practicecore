@@ -4,47 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/dashboard/css/style.css">
     <title>Dashboard</title>
 </head>
 <body>
 
-
-
     {% if user.is_authenticated %}
-        <p id="new_game_btn">New Game!</p>
-        <a href="/logout">Logout!</a>
+    <div class="container">
 
-        <div class='waiting_games'>
-            <ul>
-            {% if active_games %}
-                {% for game in active_games %} 
-                    {% if game.player_1.user.id == user_id or game.player_2.user.id == user_id %}
-                    <li><p class="open_game" id="open_game--{{ game.id }}">
-                        {% if game.player_1.user.id == user_id %}
-                            {{game.player_2.user}},
-                        {% else %}
-                            {{game.player_1.user}},
-                        {% endif%} {{ game.get_status_display }}</p></li>
-                    {% endif %}
-                {% endfor %}
-            {% endif%}
+        <header class="topbar">
+            <a href="/logout" class="topbar__btn game_btn">Logout!</a>
+        </header>
+        
+        <main class="dashboard">
+            <div class="dashboard__title">
+                <h1>
+                    <span>B</span>
+                    <span>U</span>
+                    <span>N</span>
+                    <span>S</span>
+                    <span>!</span>
+                </h1>
+            </div>
 
-            {% if waiting_games %}
-                {% for game in waiting_games %} 
-                    {% if game.player_1.user.id != user_id %}
-                    <li><p class="join_game" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
-                    {% endif %}
-                {% endfor %}
-            {% endif%}
+            <div class="dashboard__columns">
+                <div class='dashboard__game_list'>
+                    <ul class="game_list">
+                    {% if active_games %}
+                        {% for game in active_games %} 
+                            {% if game.player_1.user.id == user_id or game.player_2.user.id == user_id %}
+                            <li class="game_item"><p class="open_game" id="open_game--{{ game.id }}">
+                                {% if game.player_1.user.id == user_id %}
+                                    {{game.player_2.user}},
+                                {% else %}
+                                    {{game.player_1.user}},
+                                {% endif%} {{ game.get_status_display }}</p></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif%}
+        
+                    {% if waiting_games %}
+                        {% for game in waiting_games %} 
+                            {% if game.player_1.user.id != user_id %}
+                            <li><p class="join_game" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif%}
+        
+                    {% if not waiting_games and not active_games %}
+                        <p>There are no games yet!</p>
+                        <p>You can create your own or come back later :)</p>
+                    {% endif%}
+                        
+                    </ul>
 
-            {% if not waiting_games and not active_games %}
-                <p>There are no games yet!</p>
-                <p>You can create your own or come back later :)</p>
-            {% endif%}
+
+                    
+                </div>
+
+                <div class="dashboard__new_game">
+                    <div class="dashboard__btn game_btn" id="new_game_btn">New Game!</div>
+                </div>
                 
-            </ul>
+
+            </div>
             
-        </div>
+        </main>
+
+        
+
+    </div>
 
 
 
