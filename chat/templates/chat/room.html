@@ -108,10 +108,10 @@
                 console.log(data);
                 console.log("the user is:");
                 console.log("{{user}}");
-                if ("{{user}}" === data.message.sender) {
-                    document.querySelector('#window1').value += (JSON.stringify(data.message.text) + '\n');
+                if ("{{user}}" === data.message.sender && data.message.type === "success") {
+                    document.querySelector('#window1').value += (data.message.text + '\n');
                 }
-                else {
+                else if (data.message.type === "success") {
                     document.querySelector('#window2').value += (JSON.stringify(data.message.text) + '\n');
                 }
 
