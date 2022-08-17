@@ -79,12 +79,59 @@ class ChatConsumer(WebsocketConsumer):
         if word == 'lyalyalya':
             return {'status': 'startgame'}
 
-        else:
+        if not len(word):
+            return {'status': 'error', 'error': 'The word cannot be empty'}
+
+        if str(word[0]) != game.task.letter.lower():
+            return {
+                'status': 'error',
+                'error': 'The word "{}" starts with the wrong letter'.format(word)
+            }
+
+        elif not word_db:
+            word_db = Word.objects.create(word=word, category=game.task.category)
+            query = GameWord.objects.create(game=game, word=word_db, player=player)
+            # serializer = GameSerializer(query.game)
+            words_1 = GameWord.objects.filter(game=game, player=game.player_1)
+            words_1_list = []
+            for w in words_1:
+                words_1_list.append(w.word.word)
+
+            words_2 = GameWord.objects.filter(game=game, player=game.player_2)
+            words_2_list = []
+            for w in words_2:
+                words_2_list.append(w.word.word)
+
             return {
                 'status': 'success',
                 'message': 'The word "{}" was successfully added to the game'.format(word)
-            }
-            
+            } 
+
+        else:
+            word_db = word_db[0]
+            game_words = GameWord.objects.filter(game=game)
+            words = []
+            for g in game_words:
+                words.append(g.word)
+            # Если такое слово найденно, возвращаем ошибку о наличии такого слова
+            if word_db in words:
+                return {
+                     'status': 'error',
+                     'error': 'The word "{}" was found in the game'.format(word)}
+
+            query = GameWord.objects.create(game=game, word=word_db, player=player)
+            # serializer = GameSerializer(query.game)
+            words_1 = GameWord.objects.filter(game=game, player=game.player_1)
+            words_1_list = []
+            for w in words_1:
+                words_1_list.append(w.word.word)
+
+            words_2 = GameWord.objects.filter(game=game, player=game.player_2)
+            words_2_list = []
+            for w in words_2:
+                words_2_list.append(w.word.word)   
+
+
 
 
     # Receive message from WebSocket

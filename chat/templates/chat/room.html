@@ -112,7 +112,7 @@
                     document.querySelector('#window1').value += (data.message.text + '\n');
                 }
                 else if (data.message.type === "success") {
-                    document.querySelector('#window2').value += (JSON.stringify(data.message.text) + '\n');
+                    document.querySelector('#window2').value += (data.message.text + '\n');
                 }
 
                 // if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){

@@ -46,8 +46,6 @@ def game_view(request, game_id):
     
     
 
-    
-
 class NewGameView(APIView):
     def post(self, request):
         print('waiting class 2')
