@@ -60,6 +60,7 @@
             <textarea id="window1" cols="100" rows="6"></textarea>
         </div>
         <div><input id="message-input" type="text"></div>
+        <div id="message-error"></div>
         <div><input id="message-submit" type="button" value="Send"></div>
 
         <div>
@@ -110,9 +111,13 @@
                 console.log("{{user}}");
                 if ("{{user}}" === data.message.sender && data.message.type === "success") {
                     document.querySelector('#window1').value += (data.message.text + '\n');
+                    document.querySelector('#message-error').innerText = '';
                 }
                 else if (data.message.type === "success") {
                     document.querySelector('#window2').value += (data.message.text + '\n');
+                }
+                else if ("{{user}}" === data.message.sender && data.message.type === "error") {
+                    document.querySelector('#message-error').innerText = (data.message.text);
                 }
 
                 // if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
