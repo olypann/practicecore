@@ -129,7 +129,12 @@ class ChatConsumer(WebsocketConsumer):
             words_2 = GameWord.objects.filter(game=game, player=game.player_2)
             words_2_list = []
             for w in words_2:
-                words_2_list.append(w.word.word)   
+                words_2_list.append(w.word.word) 
+
+            return {
+                'status': 'success',
+                'message': 'The word "{}" was successfully added to the game'.format(word)
+            }   
 
 
 
