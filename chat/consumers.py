@@ -152,6 +152,7 @@ class ChatConsumer(WebsocketConsumer):
         self.word_db = self.get_word(message)
         if self.word_db:
             print('startinggg')
+            print(self.word_db)
             if self.word_db["status"] == "error":
                 print('entering status error if')
                 async_to_sync(self.channel_layer.group_send)(
