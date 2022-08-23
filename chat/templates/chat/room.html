@@ -116,9 +116,13 @@
                 else if (data.message.type === "success") {
                     document.querySelector('#window2').value += (data.message.text + '\n');
                 }
+
                 else if ("{{user}}" === data.message.sender && data.message.type === "error") {
                     console.log(data.message.text);
                     document.querySelector('#message-error').innerText = (data.message.text);
+                }
+                else {
+                    console.log(data);
                 }
 
                 // if ('{{data.status}}' == 'A' && user === '{{data.player_2.user.username}}'){
