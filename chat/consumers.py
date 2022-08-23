@@ -155,7 +155,7 @@ class ChatConsumer(WebsocketConsumer):
             print(self.word_db)
             if self.word_db["status"] == "error":
                 print('entering status error if')
-                self.channel_layer.group_send(
+                async_to_sync(self.channel_layer.group_send)(
                     self.room_group_name,
                     {
                         'type': 'chat_message',
@@ -164,7 +164,7 @@ class ChatConsumer(WebsocketConsumer):
                 )
 
             elif self.word_db["status"] == "startgame":
-                self.channel_layer.group_send(
+                async_to_sync(self.channel_layer.group_send)(
                     self.room_group_name,
                     {
                         'type': 'chat_message',
@@ -174,7 +174,7 @@ class ChatConsumer(WebsocketConsumer):
 
             elif self.word_db["status"] == "success":
                 # Send message to room group
-                self.channel_layer.group_send(
+                async_to_sync(self.channel_layer.group_send)(
                     self.room_group_name,
                     {
                         'type': 'chat_message',
