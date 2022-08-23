@@ -155,7 +155,6 @@ class ChatConsumer(WebsocketConsumer):
             if self.word_db["status"] == "error":
                 print('entering status error if')
                 async_to_sync(self.channel_layer.group_send)(
-                    print('entered status error if')
                     self.user_room_name,
                     {
                         'type': 'chat_message',
