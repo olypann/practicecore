@@ -14,7 +14,12 @@ class ChatConsumer(WebsocketConsumer):
         self.user = self.scope["user"]
         self.user_room_name = f"notif_room_for_user_{self.user.id}"
 
-        # Join room group
+
+        async_to_sync(self.channel_layer.group_add)(
+            self.user_room_name,
+            self.channel_name
+        )
+
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
             self.channel_name
@@ -156,7 +161,7 @@ class ChatConsumer(WebsocketConsumer):
             if self.word_db["status"] == "error":
                 print('entering status error if')
                 async_to_sync(self.channel_layer.group_send)(
-                    self.room_group_name,
+                    self.user_room_name,
                     {
                         'type': 'chat_message',
                         'message': {'text': self.word_db["error"], 'type': 'error'},
