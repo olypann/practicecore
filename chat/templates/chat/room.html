@@ -55,6 +55,14 @@
 
     {% elif game.status == "A" %}
 
+        <div class="game__task">
+            <h1 class="game__task-text">Remember as many <span class="game__task-category">{{ game.task.category.name }}</span> staring with <span class="game__task-letter">{{ game.task.letter }}</span></h1>
+        </div>
+
+        <div class="game__countdown">
+            <p class="game__countdown-text"><span id='time_left' class="game__countdown-number"></span> seconds left</p>
+        </div>
+
         <div>
             <h2 id="username1"></h2>
             <textarea id="window1" cols="100" rows="6"></textarea>
@@ -158,6 +166,37 @@
                 }));
                 messageInputDom.value = '';
             };
+
+        
+            let updateTimer = () => {
+                var date = (new Date('{{ game.end_time }}') - new Date()) / 1000 >> 0;
+                document.querySelector('#time_left').innerText = date;
+                if (date > 0)
+                {
+                    setTimeout(updateTimer, 200);
+                }
+                else
+                {
+                    console.log('game over')
+                    console.log('{{game.id}}')
+                    fetch('/api/gameover/{{ game.id }}/', {
+                        method: 'PUT',
+                        headers: {
+                        'X-CSRFToken': '{{csrf_token}}',
+                        },
+                        credentials: "same-origin",
+                    })
+                    .then(res => {
+                        res.json()
+                        .then(data => {
+                            console.log(data);
+                            window.location.reload();
+                        });
+                    });
+                }
+            }
+
+            updateTimer();
 
             
 
