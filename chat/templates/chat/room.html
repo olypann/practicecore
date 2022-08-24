@@ -170,7 +170,7 @@
 
         
             let updateTimer = () => {
-                var date = (new Date('{{ game.end_time }}') - new Date()) / 1000 >> 0;
+                var date = (new Date('{{ game.end_time }}') - new Date.UTC()) / 1000 >> 0;
                 document.querySelector('#time_left').innerText = date;
                 if (date > 0)
                 {
