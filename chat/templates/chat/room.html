@@ -169,8 +169,29 @@
             };
 
         
+            function changeTimeZone(date, timeZone) {
+                if (typeof date === 'string') {
+                    return new Date(
+                    new Date(date).toLocaleString('en-GB', {
+                        timeZone,
+                    }),
+                    );
+                }
+
+                return new Date(
+                    date.toLocaleString('en-GB', {
+                    timeZone,
+                    }),
+                );
+            }
+
+            const ukDate = changeTimeZone(new Date(), 'Europe/London');
+            console.log(ukDate); 
+            
+
+
             let updateTimer = () => {
-                var date = (new Date('{{ game.end_time }}') - new Date.UTC()) / 1000 >> 0;
+                var date = (new Date('{{ game.end_time }}') - ukDate) / 1000 >> 0;
                 document.querySelector('#time_left').innerText = date;
                 if (date > 0)
                 {
