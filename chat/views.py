@@ -140,3 +140,23 @@ class GameView(APIView):
         else:
             return Response({'status': 'error',
                              'error': 'There was an error oops'})
+
+
+class GameOverView(APIView):
+    def put(self, request, game_id):
+        print('the game has ended')
+        try:
+            game = Game.objects.filter(id=game_id)
+            if game:
+                game = game[0]
+                print(game.player_1, game.player_2)
+                
+                game.status = 'P'
+                game.save()
+
+                serializer = GameSerializer(game, context={'request': request})
+                return Response(serializer.data)
+
+        except Exception as e:
+            print(e)
+            return Response({'error': str(e)}, status=500)
