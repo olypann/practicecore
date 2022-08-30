@@ -169,29 +169,32 @@
             };
 
         
-            function changeTimeZone(date, timeZone) {
-                if (typeof date === 'string') {
-                    return new Date(
-                        new Date(date).toLocaleString('en-GB', {
-                            timeZone,
-                        }),
-                    );
-                }
+            // function changeTimeZone(date, timeZone) {
+            //     if (typeof date === 'string') {
+            //         return new Date(
+            //             new Date(date).toLocaleString('en-GB', {
+            //                 timeZone,
+            //             }),
+            //         );
+            //     }
 
-                return new Date(
-                    date.toLocaleString('en-GB', {
-                        timeZone,
-                    }),
-                );
-            }
+            //     return new Date(
+            //         date.toLocaleString('en-GB', {
+            //             timeZone,
+            //         }),
+            //     );
+            // }
 
-            const ukDate = changeTimeZone(new Date(), 'Europe/London');
-            console.log(ukDate); 
+            // const ukDate = changeTimeZone(new Date(), 'Europe/London');
+            // console.log(ukDate); 
             
 
 
             let updateTimer = () => {
-                var date = (new Date('{{ game.end_time }}') - ukDate) / 1000 >> 0;
+                var currentDate = new Date();
+                console.log(currentDate);
+                var date = (new Date('{{ game.end_time }}') - currentDate) / 1000 >> 0;
+                console.log(date);
                 document.querySelector('#time_left').innerText = date;
                 if (date > 0)
                 {
