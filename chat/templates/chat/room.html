@@ -172,15 +172,15 @@
             function changeTimeZone(date, timeZone) {
                 if (typeof date === 'string') {
                     return new Date(
-                    new Date(date).toLocaleString('en-GB', {
-                        timeZone,
-                    }),
+                        new Date(date).toLocaleString('en-GB', {
+                            timeZone,
+                        }),
                     );
                 }
 
                 return new Date(
                     date.toLocaleString('en-GB', {
-                    timeZone,
+                        timeZone,
                     }),
                 );
             }
