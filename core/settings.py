@@ -136,11 +136,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_root'),
-    # os.path.join(PROJECT_DIR, 'static'),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static_root'),
+# ]
 
 
 ASGI_APPLICATION = "core.routing.application"
