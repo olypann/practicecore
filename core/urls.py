@@ -19,6 +19,8 @@ from django.urls import path, include
 from dashboard.views import *
 from accounts.views import *
 from chat.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +37,6 @@ urlpatterns = [
     path('signup/', signup_view, name='sign up'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
