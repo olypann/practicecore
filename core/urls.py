@@ -13,28 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-#help
 from django.contrib import admin
-from django.urls import path, include
-from dashboard.views import *
-from accounts.views import *
-from chat.views import *
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', dashboard, name='dashboard'),
-    path('game/', include('chat.urls')),
-
-    # path('api/game/<str:game_id>/addword/', GameWordView.as_view()),
-
-    path('api/game/', NewGameView.as_view()),
-    path('api/game/<str:game_id>/', GameView.as_view()),
-
-    
-
-    path('signup/', signup_view, name='sign up'),
-    path('login/', login_view, name='login'),
-    path('logout/', logout_view),
 ]
-
-
