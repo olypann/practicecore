@@ -33,10 +33,10 @@ ALLOWED_HOSTS = ['*', '.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    # 'channels',
-    # 'chat',
-    # 'dashboard',
-    # 'accounts',
+    'channels',
+    'chat',
+    'dashboard',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,14 +79,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-#         },
-#     },
-# }
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+        },
+    },
+}
 
 DATABASES = {
     'default': {
