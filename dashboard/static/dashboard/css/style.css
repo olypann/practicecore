@@ -17,7 +17,6 @@
 }
 
 body {
-    /* background-image: url("images/space.gif"); */
 
     margin: 0;
     background-color: var(--solid_color);
@@ -243,7 +242,6 @@ body {
 }
 
 body {
-    /* background-image: url("images/space.gif"); */
 
     margin: 0;
     background-color: var(--solid_color);
