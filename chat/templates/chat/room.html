@@ -82,6 +82,7 @@
         <script>
             
             console.log('{{game}}');
+            // console.log('{{data}}');
             const roomName = JSON.parse(document.getElementById('room-name').textContent);
     
             const chatSocket = new WebSocket(
@@ -108,14 +109,38 @@
             };
     
             chatSocket.onmessage = function (e) {
-
-
                 const data = JSON.parse(e.data);
-
+                console.log(data);
                 if (data.message.type === 'players') {
-                    console.log('hello 2');
-                }
+                    console.log(data.message);
+                    user = data.message.current_player;
+                    enemy = data.message.enemy;
+                    document.querySelector('#current_user').innerText = user;
+                    document.querySelector('#enemy_user').innerText = enemy;
+                    console.log(user, enemy);
 
+                    var words_1 = {{ data.words_1|safe }}
+                    var words_2 = {{ data.words_2|safe }}
+                    if ('{{data.player_1.user.username}}' == user) {
+                        words_1.forEach(word=>{
+                            document.querySelector('#chat-log1').value += (word + '\n');
+                        }); 
+                        words_2.forEach(word=>{
+                            document.querySelector('#chat-log2').value += (word + '\n');
+                        })
+                    }
+                    else {
+                        words_2.forEach(word=>{
+                            document.querySelector('#chat-log1').value += (word + '\n');
+                        }); 
+                        words_1.forEach(word=>{
+                            document.querySelector('#chat-log2').value += (word + '\n');
+                        })
+                    }
+                    console.log(words_1)
+                    console.log(words_2)
+
+            
                 console.log(data);
                 console.log("the user is:");
                 console.log("{{user}}");
@@ -193,9 +218,7 @@
 
             let updateTimer = () => {
                 var currentDate = new Date();
-                console.log(currentDate);
                 var date = (new Date('{{ game.end_time }}') - currentDate) / 1000 >> 0;
-                console.log(date);
                 document.querySelector('#time_left').innerText = date;
                 if (date > 0)
                 {
