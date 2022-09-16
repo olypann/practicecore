@@ -81,8 +81,9 @@
 
         <script>
             
+
+
             console.log('{{game}}');
-            // console.log('{{data}}');
             const roomName = JSON.parse(document.getElementById('room-name').textContent);
     
             const chatSocket = new WebSocket(
@@ -109,9 +110,13 @@
             };
     
             chatSocket.onmessage = function (e) {
+
+
                 const data = JSON.parse(e.data);
-                console.log(data);
+
+
                 if (data.message.type === 'players') {
+                    console.log('hello 2');
                     console.log(data.message);
                     user = data.message.current_player;
                     enemy = data.message.enemy;
@@ -139,8 +144,9 @@
                     }
                     console.log(words_1)
                     console.log(words_2)
+                }
+                
 
-            
                 console.log(data);
                 console.log("the user is:");
                 console.log("{{user}}");
