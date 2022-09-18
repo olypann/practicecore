@@ -17,6 +17,8 @@
 }
 
 body {
+    /* background-image: url("images/space.gif"); */
+
     margin: 0;
     background-color: var(--solid_color);
     font-family: 'Press Start 2P', cursive;
@@ -241,6 +243,7 @@ body {
 }
 
 body {
+    /* background-image: url("images/space.gif"); */
 
     margin: 0;
     background-color: var(--solid_color);
@@ -334,3 +337,6 @@ body {
     }
 
 }
+
+
+

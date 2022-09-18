@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/css/title.css' %}">
     <title>Dashboard</title>
 </head>
 <body>
 
     {% if user.is_authenticated %}
     <div class="container">
-
         <header class="topbar">
             <a href="/logout" class="topbar__btn game_btn">Logout!</a>
         </header>
-        
+
         <main class="dashboard">
             <div class="dashboard__title">
                 <h1>
@@ -29,59 +29,65 @@
             </div>
 
             <div class="dashboard__columns">
-                <div class='dashboard__game_list'>
+
+                <div class="dashboard__game_list">
                     <ul class="game_list">
-                    {% if active_games %}
-                        {% for game in active_games %} 
-                            {% if game.player_1.user.id == user_id or game.player_2.user.id == user_id %}
-                            <li class="game_item"><p class="open_game" id="open_game--{{ game.id }}">
-                                {% if game.player_1.user.id == user_id %}
-                                    {{game.player_2.user}},
-                                {% else %}
-                                    {{game.player_1.user}},
-                                {% endif%} {{ game.get_status_display }}</p></li>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif%}
-        
-                    {% if waiting_games %}
-                        {% for game in waiting_games %} 
-                            {% if game.player_1.user.id != user_id %}
-                            <li><p class="join_game" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif%}
-        
-                    {% if not waiting_games and not active_games %}
-                        <p>There are no games yet!</p>
-                        <p>You can create your own or come back later :)</p>
-                    {% endif%}
-                        
+                        {% if active_games %}
+                            {% for game in active_games %} 
+                                {% if game.player_1.user.id == user_id or game.player_2.user.id == user_id %}
+                                <li class="game_item"><p class="open_game" id="open_game--{{ game.id }}">
+                                    {% if game.player_1.user.id == user_id %}
+                                        {{game.player_2.user}},
+                                    {% else %}
+                                        {{game.player_1.user}},
+                                    {% endif%} {{ game.get_status_display }}</p></li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif%}
+            
+                        {% if waiting_games %}
+                            {% for game in waiting_games %} 
+                                {% if game.player_1.user.id != user_id %}
+                                <li><p class="game_btn" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif%}
+            
+                        {% if not waiting_games and not active_games %}
+                            <p>There are no games yet!</p>
+                            <p>You can create your own or come back later :)</p>
+                        {% endif%}
+                            
                     </ul>
 
 
-                    
+                    <div class="dashboard__buttons">
+
+                        <div class="options_btn game_btn" id="sound_btn">Sound</div>
+                        <div class="options_btn game_btn" id="theme_btn">Theme</div>
+                        <!-- <img class="bunny" src="images/bun4_1.gif" alt="a bun" /> -->
+                        <img class="butterfly" src="images/butterfly.gif" alt="butter" />
+
+                    </div>
+
+                    <div class="dashboard__modals">
+                        <div class="dashboard__modal dashboard__modal--hidden" id="sound_modal">Music: on/off, Sound: on/off</div>
+                        <div class="dashboard__modal dashboard__modal--hidden" id="theme_modal">Theme: Pink, Orange, Green</div>
+
+                    </div>
                 </div>
 
+                
                 <div class="dashboard__new_game">
                     <div class="dashboard__btn game_btn" id="new_game_btn">New Game!</div>
                 </div>
-                
+
 
             </div>
-            
         </main>
-
-        
-
     </div>
 
-
-
-
-
-
-
+    
 
     {% else %}
         <a href="/login">Login</a>
