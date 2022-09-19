@@ -1,5 +1,5 @@
 .dashboard__title {
-    color: var(--solid_color);
+    color: var(--light_color);
     
     letter-spacing: 0.5em;
     font-size: 32px;
@@ -12,9 +12,9 @@
 
     border-width: 4px;
     border-style: solid;
-    border-color: var(--shadow_color) var(--shadow_color) var(--solid_color) var(--solid_color);
+    border-color: var(--light_color) var(--accent_color) var(--accent_color) var(--light_color);
 
-    /* background-color: var(--really_dark_yellow); */
+    background-color: var(--really_dark_yellow);
 }
 
 
@@ -29,12 +29,12 @@ h1 span {
     display: inline-block;
     animation: bounce .4s ease infinite alternate;
     font-size: 60px;
-    color: var(--solid_color);
-    text-shadow: 0 1px 0 var(--shadow_color),
-                 0 2px 0 var(--shadow_color),
-                 0 3px 0 var(--shadow_color),
-                 0 4px 0 var(--shadow_color),
-                 0 5px 0 var(--shadow_color),
+    color: var(--light_color);
+    text-shadow: 0 1px 0 var(--accent_color),
+                 0 2px 0 var(--accent_color),
+                 0 3px 0 var(--accent_color),
+                 0 4px 0 var(--accent_color),
+                 0 5px 0 var(--accent_color),
                  0 6px 0 transparent,
                  0 7px 0 transparent,
                  0 8px 0 transparent,
@@ -52,15 +52,15 @@ h1 span:nth-child(6) { animation-delay: .5s; }
 @keyframes bounce {
     100% {
       top: -10px;
-      text-shadow: 0 1px 0 var(--shadow_color),
-                   0 2px 0 var(--shadow_color),
-                   0 3px 0 var(--shadow_color),
-                   0 4px 0 var(--shadow_color),
-                   0 5px 0 var(--shadow_color),
-                   0 6px 0 var(--shadow_color),
-                   0 7px 0 var(--shadow_color),
-                   0 8px 0 var(--shadow_color),
-                   0 9px 0 var(--shadow_color),
+      text-shadow: 0 1px 0 var(--accent_color),
+                   0 2px 0 var(--accent_color),
+                   0 3px 0 var(--accent_color),
+                   0 4px 0 var(--accent_color),
+                   0 5px 0 var(--accent_color),
+                   0 6px 0 var(--accent_color),
+                   0 7px 0 var(--accent_color),
+                   0 8px 0 var(--accent_color),
+                   0 9px 0 var(--accent_color),
                    0 50px 25px var(--shadow_color);
     }
 }
