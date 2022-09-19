@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --light_color: #a3a29a;
     --solid_color: #545c7e;
     --accent_color: #c56981;
@@ -14,6 +14,13 @@
     --breakpoint480: 480px;
     --breakpoint320: 320px;
 
+} */
+
+:root {
+    --big_color: #ecebf3;
+    --solid_color: #0c120c;
+    --shadow_color: #7765e3;
+
 }
 
 *{
@@ -23,7 +30,7 @@
 body {
 
     margin: 0;
-    background-color: var(--solid_color);
+    background-color: var(--big_color);
     font-family: 'Press Start 2P', cursive;
     /* font-family: 'Vast Shadow', cursive;
     font-family: 'Walter Turncoat', cursive; */
@@ -52,13 +59,13 @@ body {
     /* background-color: var(--really_dark_color); */
     border-width: 2px 1px 16px 16px;
     border-style: solid;
-    border-top-color: var(--light_color);
-    border-right-color: var(--accent_color);
-    border-bottom-color: var(--accent_color);
-    border-left-color: var(--light_color);
+    border-top-color: var(--shadow_color);
+    border-right-color: var(--shadow_color);
+    border-bottom-color: var(--solid_color);
+    border-left-color: var(--solid_color);
 
     text-decoration: none;
-    color: var(--light_color);
+    color: var(--solid_color);
     font-size: 24px;
     transition: 0.05s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -136,10 +143,10 @@ body {
 
     border-width: 2px;
     border-style: solid;
-    border-top-color: var(--light_color);
-    border-right-color: var(--accent_color);
-    border-bottom-color: var(--accent_color);
-    border-left-color: var(--light_color);
+    border-top-color: var(--shadow_color);
+    border-right-color: var(--shadow_color);
+    border-bottom-color: var(--solid_color);
+    border-left-color: var(--solid_color);
 
     /* background-color: var(--really_dark_color); */
     font-size: 24px;
@@ -150,7 +157,7 @@ body {
 
 .game_item {
     margin-bottom: 16px;
-    color: var(--light_color);
+    color: var(--solid_color);
 
 }
 
@@ -177,15 +184,15 @@ body {
     text-align: center;
     font-size: 48px;
     line-height: 1.6em;
-    color: var(--accent_color);
+    color: var(--solid_color);
 
     border-width: 2px 1px 16px 16px;
     border-style: solid;
-    border-top-color: var(--light_color);
-    border-right-color: var(--accent_color);
-    border-bottom-color: var(--accent_color);
-    border-left-color: var(--light_color);
-    background-color: var(--double_accent_color);
+    border-top-color: var(--shadow_color);
+    border-right-color: var(--shadow_color);
+    border-bottom-color: var(--solid_color);
+    border-left-color: var(--solid_color);
+    /* background-color: var(--double_accent_color); */
 }
 
 @media (max-width:1200px) {
@@ -204,12 +211,12 @@ body {
     padding: 16px 40px;
     border-width: 5px;
     border-style: solid;
-    border-top-color: var(--light_color);
-    border-right-color: var(--accent_color);
-    border-bottom-color: var(--accent_color);
-    border-left-color: var(--light_color);
+    border-top-color: var(--shadow_color);
+    border-right-color: var(--shadow_color);
+    border-bottom-color: var(--solid_color);
+    border-left-color: var(--solid_color);
 
-    color: var(--light_color);
+    color: var(--solid_color);
 }
 
 .dashboard__modal--hidden {
@@ -248,7 +255,7 @@ body {
 body {
 
     margin: 0;
-    background-color: var(--solid_color);
+    background-color: var(--big_color);
     font-family: 'Press Start 2P', cursive;
     /* font-family: 'Vast Shadow', cursive;
     font-family: 'Walter Turncoat', cursive; */
@@ -277,13 +284,13 @@ body {
     /* background-color: var(--really_dark_color); */
     border-width: 2px 1px 16px 16px;
     border-style: solid;
-    border-top-color: var(--light_color);
-    border-right-color: var(--accent_color);
-    border-bottom-color: var(--accent_color);
-    border-left-color: var(--light_color);
+    border-top-color: var(--shadow_color);
+    border-right-color: var(--shadow_color);
+    border-bottom-color: var(--solid_color);
+    border-left-color: var(--solid_color);
 
     text-decoration: none;
-    color: var(--light_color);
+    /* color: var(--light_color); */
     font-size: 24px;
     transition: 0.05s cubic-bezier(0.075, 0.82, 0.165, 1);
 
