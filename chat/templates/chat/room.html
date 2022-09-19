@@ -6,6 +6,8 @@
     <meta charset="utf-8" />
     <title>Chat Room</title>
     <link rel="stylesheet" href="{% static 'chat/css/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="../../static/chat/images/favicon2.ico"/>
+
 </head>
 
 <body>
@@ -80,7 +82,7 @@
             <article class="game">
                 <div class="game__top-bar">
                     <div class="game__close">
-                        <a href="/dashboard/"><button class="game__close-btn">Close</button></a>
+                        <a href="/"><button class="game__close-btn">Close</button></a>
                     </div>
                     <div class="game__task">
                         <h1 class="game__task-text">Remember as many <span class="game__task-category">{{ game.task.category.name }}</span> staring with <span class="game__task-letter">{{ game.task.letter }}</span></h1>
