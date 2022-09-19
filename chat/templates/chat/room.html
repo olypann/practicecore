@@ -18,6 +18,28 @@
             <div>waiting room</div>
         </div>
 
+        <embed name="little bunny" id="myAudio" src="../../static/game/music/little_bunny.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
+            <!-- <embed name="polite cow" id="myAudio" src="../../static/game/music/lion.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
+        
+                <div class="waiting_container">
+        
+                    <div class="speech-bubbles">
+                        <div class = "main_text speech-bubble">
+                            <span id='text'></span><div class='console-underscore' id='console'>&#95;</div>
+                        </div>
+                
+                        <div class = "main_text exit-bubble">
+                            <span id='text'></span><div class='exit_text'>Want to go back to the main menu?</div>
+                            <a href="/dashboard/"><button id='exit-waiting' class='exit_btn'>Click Here!</button></a>
+                        </div>
+                    </div>
+                    
+            
+                    <div class="waiting_bunny">
+                        <img class="bunny" src="../../static/game/images/bun4.gif" alt="a seabun" />
+                    </div>
+            </div>
+
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
         console.log(roomName);
@@ -57,26 +79,43 @@
 
     {% elif game.status == "A" %}
 
-        <div class="game__task">
-            <h1 class="game__task-text">Remember as many <span class="game__task-category">{{ game.task.category.name }}</span> staring with <span class="game__task-letter">{{ game.task.letter }}</span></h1>
+        <div class="container">
+            <article class="game">
+                <div class="game__top-bar">
+                    <div class="game__close">
+                        <a href="/dashboard/"><button class="game__close-btn">Close</button></a>
+                    </div>
+                    <div class="game__task">
+                        <h1 class="game__task-text">Remember as many <span class="game__task-category">{{ game.task.category.name }}</span> staring with <span class="game__task-letter">{{ game.task.letter }}</span></h1>
+                    </div>
+                    <div class="game__countdown">
+                        <p class="game__countdown-text"><span id='time_left' class="game__countdown-number"></span> seconds left</p>
+                    </div>
+                </div>
+
+                <div class="game__main">
+
+                    <div class="game__left">
+                        <p id="username1" class="game__user"></p>
+                        <textarea class="game__list" id="window1" rows="20" style="background: transparent;" readonly></textarea><br>
+
+                        {% csrf_token %}
+                        <input id="message-input" class="game__input-word" type="text" size="100" style="background: transparent;"><br>
+                        <p id="message-error" class="message"></p>
+                        <input type="button" id="message-submit" class="game__send-btn" value="Send">  
+                    </div>
+
+                    <div class="game__right game__words">
+                        <p id="username2" class="game__user"></p>
+                        <textarea id="window2" class="game__list" cols="100" rows="20" style="background: transparent;" readonly></textarea><br>
+                    </div>
+
+                    </div>
+                </div>
+
+            </article>
         </div>
 
-        <div class="game__countdown">
-            <p class="game__countdown-text"><span id='time_left' class="game__countdown-number"></span> seconds left</p>
-        </div>
-
-        <div>
-            <h2 id="username1"></h2>
-            <textarea id="window1" cols="100" rows="6"></textarea>
-        </div>
-        <div><input id="message-input" type="text"></div>
-        <div id="message-error"></div>
-        <div><input id="message-submit" type="button" value="Send"></div>
-
-        <div>
-            <h2 id="username2"></h2>
-            <textarea id="window2" cols="100" rows="6"></textarea>
-        </div>
 
 
         <script>
@@ -261,6 +300,17 @@
 
     {% elif game.status == "P" %}
     <div>The Game Is Over! Wait for results</div>
+    <div class="gameover_container">
+        <img class="bouncing_bunny" src="../../static/game/images/big_bounce2.gif" alt="bouncing seabun">
+        <div class="text_container">
+            <h1 class='main_text gameover_text'>The game has ended?</h1>
+            <p>uh oh!</p>
+            <p>play another one?</p>
+            <a href="/dashboard/"><button class='a_btn'>continue</button></a>
+        </div>
+        <img class="bouncing_bunny" src="../../static/game/images/big_bounce.gif" alt="bouncing seabun">
+    </div>
+    <embed name="little bunny" id="myAudio" src="../../static/game/music/little_bunny.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
 
     {% elif game.status == "F"%}
     <div>the game is finished</div>
