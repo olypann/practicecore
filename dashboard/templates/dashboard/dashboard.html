@@ -50,7 +50,7 @@
                         {% if waiting_games %}
                             {% for game in waiting_games %} 
                                 {% if game.player_1.user.id != user_id %}
-                                <li><p class="game_btn" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
+                                <li><p class="join_game" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
                                 {% endif %}
                             {% endfor %}
                         {% endif%}
