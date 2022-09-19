@@ -17,28 +17,25 @@
         <div>
             <div>waiting room</div>
         </div>
+        
+        <div class="waiting_container">
 
-        <embed name="little bunny" id="myAudio" src="../../static/game/music/little_bunny.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
-            <!-- <embed name="polite cow" id="myAudio" src="../../static/game/music/lion.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
+            <div class="speech-bubbles">
+                <div class = "main_text speech-bubble">
+                    <span id='text'></span><div class='console-underscore' id='console'>&#95;</div>
+                </div>
         
-                <div class="waiting_container">
-        
-                    <div class="speech-bubbles">
-                        <div class = "main_text speech-bubble">
-                            <span id='text'></span><div class='console-underscore' id='console'>&#95;</div>
-                        </div>
-                
-                        <div class = "main_text exit-bubble">
-                            <span id='text'></span><div class='exit_text'>Want to go back to the main menu?</div>
-                            <a href="/dashboard/"><button id='exit-waiting' class='exit_btn'>Click Here!</button></a>
-                        </div>
-                    </div>
-                    
-            
-                    <div class="waiting_bunny">
-                        <img class="bunny" src="../../static/game/images/bun4.gif" alt="a seabun" />
-                    </div>
+                <div class = "main_text exit-bubble">
+                    <span id='text'></span><div class='exit_text'>Want to go back to the main menu?</div>
+                    <a href="/"><button id='exit-waiting' class='exit_btn'>Click Here!</button></a>
+                </div>
             </div>
+            
+    
+            <div class="waiting_bunny">
+                <img class="bunny" src="../../static/game/images/bun4.gif" alt="a seabun" />
+            </div>
+    </div>
 
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
