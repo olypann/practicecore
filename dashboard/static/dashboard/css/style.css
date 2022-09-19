@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --light_color: #a3a29a;
     --solid_color: #545c7e;
     --accent_color: #c56981;
@@ -14,7 +14,7 @@
     --breakpoint480: 480px;
     --breakpoint320: 320px;
 
-}
+} */
 
 :root {
     --big_color: #ecebf3;
@@ -227,21 +227,7 @@ body {
 
 
 :root {
-    --light_color: #a3a29a;
-    --solid_color: #545c7e;
-    --accent_color: #c56981;
-    --double_accent_color: rgb(141, 148, 177);
-    --shadow_color: #32364a;
-    --really_dark_color: #282328;
-
-    /* --light_color: #f3ea5f;
-    --solid_color: #2bd1fc;
-    --accent_color: #ff48c4;
-    /* --shadow_color: #c04df9; */
-    /* --shadow_color: #51166e;
-    /* --really_dark_color: #990808; */
-    /* --really_dark_color: rgba(129, 0, 0, 0.3);
-    --really_dark_yellow: rgba(181, 199, 20, 0.2);   */
+    
 
     --container_width: 1200px;
     --breakpoint1200: 1200px;
