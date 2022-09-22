@@ -163,8 +163,19 @@
                     document.querySelector('#enemy_user').innerText = enemy;
                     console.log(user, enemy);
 
-                    var words_1 = {{ game.words_1|safe }}
-                    var words_2 = {{ game.words_2|safe }}
+                    {% if game.words_1 %}
+                        var words_1 = {{ game.words_1|safe }};
+                    {% else %}
+                        var words_1 = [];
+                    {% endif %}
+
+                    {% if game.words_2 %}
+                        var words_2 = {{ game.words_2|safe }};
+                    {% else %}
+                        var words_2 = [];
+                    {% endif %}
+
+                    
                     if ('{{game.player_1.user.username}}' == user) {
                         words_1.forEach(word=>{
                             document.querySelector('#window1').value += (word + '\n');
