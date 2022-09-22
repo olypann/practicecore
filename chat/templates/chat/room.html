@@ -147,10 +147,12 @@
                 }
             };
     
-            chatSocket.onmessage = function(e) {
+            chatSocket.onmessage = function (e) {
+
 
                 const data = JSON.parse(e.data);
 
+                    
 
                 if (data.message.type === 'players') {
                     console.log('hello 2');
@@ -161,15 +163,15 @@
                     document.querySelector('#enemy_user').innerText = enemy;
                     console.log(user, enemy);
 
-                    var words_1 = {{ data.words_1|safe }}
-                    var words_2 = {{ data.words_2|safe }}
-                    if ('{{data.player_1.user.username}}' == user) {
+                    var words_1 = {{ game.words_1|safe }};
+                    var words_2 = {{ game.words_2|safe }};
+                    if ('{{game.player_1.user.username}}' == user) {
                         words_1.forEach(word=>{
                             document.querySelector('#window1').value += (word + '\n');
                         }); 
                         words_2.forEach(word=>{
                             document.querySelector('#window2').value += (word + '\n');
-                        })
+                        });
                     }
                     else {
                         words_2.forEach(word=>{
@@ -177,7 +179,7 @@
                         }); 
                         words_1.forEach(word=>{
                             document.querySelector('#window2').value += (word + '\n');
-                        })
+                        });
                     }
                     console.log(words_1)
                     console.log(words_2)

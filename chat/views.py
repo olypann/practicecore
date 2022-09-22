@@ -79,6 +79,7 @@ class GameView(APIView):
             # game_id = request.query_params.get('game_id')
             # создаем список с одним элементом игры, так как только у одной может быть подходящий id
             game = Game.objects.filter(id=game_id)
+            print(game_id)
             #Если в этом списке есть игра(если такая игра нашлась)
             if game:
                 print(game[0].player_1, game[0].player_2)
