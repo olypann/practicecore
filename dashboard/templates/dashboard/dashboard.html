@@ -68,22 +68,24 @@
 
                     <div class="dashboard__buttons">
 
-                        <div class="options_btn game_btn" id="sound_btn">Sound</div>
-                        <div class="options_btn game_btn" id="theme_btn">Theme</div>
+                        <button class="options_btn game_btn" id="sound_btn" onclick="myFunctionSound()></button>
+                        <button class="options_btn game_btn" id="theme_btn" onclick="myFunctionTheme()>Theme</button>
+                        <button class="options_btn game_btn" id="games_btn" onclick="myFunctionGames()>Theme</button>
                         <img class="bunny" src="../../static/dashboard/images/bun.gif" alt="a bun" />
 
                     </div>
 
-                    <div class="dashboard__modals">
-                        <div class="dashboard__modal dashboard__modal--hidden" id="sound_modal">Music: on/off, Sound: on/off</div>
-                        <div class="dashboard__modal dashboard__modal--hidden" id="theme_modal">Theme: Pink, Orange, Green</div>
-
-                    </div>
                 </div>
 
                 
                 <div class="dashboard__new_game">
                     <div class="dashboard__btn game_btn" id="new_game_btn">New Game!</div>
+
+                    <div class="dashboard__modals">
+                        <div class="dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="sound_modal">Music: on/off, Sound: on/off</div>
+                        <div class="dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="theme_modal">Theme: Pink, Orange, Green</div>
+                        <div class="dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="games_modal">Your Games:</div>
+                    </div>
                 </div>
 
 
@@ -162,6 +164,94 @@
             
             }
         })
+
+
+        var sound = false
+        var games = false
+        var themes = false
+
+        // When the user clicks on <div>, open the popup
+        function myFunctionGames() {
+          var popup_g = document.getElementById("games_modal");
+          var popup_s = document.getElementById("sound_modal");
+          var popup_t = document.getElementById("theme_modal");
+          
+          if (games==false) {
+            popup_g.style.visibility = 'visible';
+            games = true;
+          }
+
+          else {
+            popup_g.style.visibility = 'hidden';
+            games = false;
+          }
+
+          if (sound==true) {
+            popup_s.style.visibility = 'hidden';
+            sound = false;
+          }
+
+          if (theme==true) {
+            popup_t.style.visibility = 'hidden';
+            theme = false;
+          }
+
+        }
+
+        function myFunctionSound() {
+          var popup_g = document.getElementById("games_modal");
+          var popup_s = document.getElementById("sound_modal");
+          var popup_t = document.getElementById("theme_modal");
+          
+          if (sound==false) {
+            popup_s.style.visibility = 'visible';
+            sound = true;
+          }
+
+          else {
+            popup_s.style.visibility = 'hidden';
+            sound = false;
+          }
+
+          if (games==true) {
+            popup_g.style.visibility = 'hidden';
+            games = false;
+          }
+
+          if (theme==true) {
+            popup_t.style.visibility = 'hidden';
+            theme = false;
+          }
+            
+        }
+
+        function myFunctionTheme() {
+          var popup_g = document.getElementById("games_modal");
+          var popup_s = document.getElementById("sound_modal");
+          var popup_t = document.getElementById("theme_modal");
+          
+          if (theme==false) {
+            popup_t.style.visibility = 'visible';
+            theme = true;
+          }
+
+          else {
+            popup_t.style.visibility = 'hidden';
+            theme = false;
+          }
+
+          if (sound==true) {
+            popup_s.style.visibility = 'hidden';
+            sound = false;
+          }
+
+          if (games==true) {
+            popup_g.style.visibility = 'hidden';
+            games = false;
+          }
+            
+        }
+
 
     </script>
 
