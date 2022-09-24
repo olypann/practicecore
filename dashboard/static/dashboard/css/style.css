@@ -226,7 +226,7 @@ body {
     /* align-self: end; */
 }
 
-.dashboard__modal {
+/* .dashboard__modal {
     padding: 16px 40px;
     border-width: 5px;
     border-style: solid;
@@ -240,6 +240,78 @@ body {
 
 .dashboard__modal--hidden {
     display: none;
+} */
+
+.popuptext {
+    visibility: hidden;
+    width: 50pxpx;
+    background-color: var(--accent_color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -30px;
+    left: 140px;
+    margin-left: -80px;
+  
+    line-height: 20px;
+    font-size: 10px;
+    overflow-y: scroll;
+    height: 30px;
+    animation: fadeIn 1s;
+  }
+  
+.popuptext2 {
+    visibility: hidden;
+    width: 160px;
+    background-color: var(--accent_color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -30px;
+    left: 195px;
+    margin-left: -80px;
+    animation: fadeIn 1s;
+  
+    line-height: 20px;
+    font-size: 10px;
+    overflow-y: scroll;
+    height: 30px;
+}
+
+.popuptext3 {
+    visibility: hidden;
+    width: 160px;
+    background-color: var(--accent_color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -30px;
+    left: 250px;
+    margin-left: -80px;
+    animation: fadeIn 1s;
+  
+    line-height: 20px;
+    font-size: 10px;
+    overflow-y: scroll;
+    height: 30px;
+}
+  
+  /* Popup arrow */
+.popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--accent_color) var(--accent_color) transparent var(--accent_color);
 }
 
 
