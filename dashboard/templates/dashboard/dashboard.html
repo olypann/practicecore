@@ -68,18 +68,33 @@
 
                     <div class="dashboard__buttons">
 
-                        <button class="options_btn game_btn" id="sound_btn" onclick="myFunctionSound()">
+                        <button class="options_btn game_btn" id="sound_btn" onclick="myFunctionSound()">Sound</button>
+
+                        <button class="options_btn game_btn" id="theme_btn" onclick="myFunctionTheme()">Themes</button>
+                        
+                        <button class="options_btn game_btn" id="games_btn" onclick="myFunctionGames()">Games</button>
+
+                        <img class="bunny" src="../../static/dashboard/images/bun.gif" alt="a bun">
+
+                    </div>
+
+                </div>
+
+                
+                <div class="dashboard__new_game">
+                    <div class="dashboard__btn game_btn" id="new_game_btn">New Game!</div>
+
+                    <div class="dashboard__modals">
+                        <div class="popuptext dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="sound_modal">
                             <p>Music: on/pff</p>
                             <p>Sound: on/pff</p>
-                        </button>
-
-                        <button class="options_btn game_btn" id="theme_btn" onclick="myFunctionTheme()">
+                        </div>
+                        <div class="popuptext popuptext2 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="theme_modal">
                             <p>Pink</p>
                             <p>Green</p>
                             <p>Black n White</p>
-                        </button>
-                        
-                        <button class="options_btn game_btn" id="games_btn" onclick="myFunctionGames()">
+                        </div>
+                        <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="games_modal">
                             <ul>
                                 {% for game in finished_games %}
                                     {% if game.player_1.user.username == user %}
@@ -97,22 +112,7 @@
                                     {% endif %}
                                 {% endfor %}
                             </ul>
-                        </button>
-
-                        <img class="bunny" src="../../static/dashboard/images/bun.gif" alt="a bun">
-
-                    </div>
-
-                </div>
-
-                
-                <div class="dashboard__new_game">
-                    <div class="dashboard__btn game_btn" id="new_game_btn">New Game!</div>
-
-                    <div class="dashboard__modals">
-                        <div class="popuptext dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="sound_modal">Music: on/off, Sound: on/off</div>
-                        <div class="popuptext popuptext2 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="theme_modal">Theme: Pink, Orange, Green</div>
-                        <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="games_modal">Your Games:</div>
+                        </div>
                     </div>
                 </div>
 

@@ -1,10 +1,10 @@
 :root {
-    --light_color: #a3a29a;
-    --solid_color: #545c7e;
-    --accent_color: #c56981;
-    --double_accent_color: rgb(141, 148, 177);
-    --shadow_color: #32364a;
-    --really_dark_color: #282328;
+    --light_color: #f7ffae;
+    --solid_color: #d8bfd8;
+    --accent_color: #96fbc7;
+    --double_accent_color: #ffb3cb;
+    --shadow_color: #ffb3cb;
+    --really_dark_color: #74569b;
 
 
     --container_width: 1200px;
