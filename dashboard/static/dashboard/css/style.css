@@ -17,23 +17,23 @@
     }
      
     :root.green {
-        --light_color: #975330;
-        --solid_color: #574729;
-        --accent_color: #b98d68;
+        --light_color: #e1c8bb;
+        --solid_color: #3f7ea2;
+        --accent_color: #425073;
         --double_accent_color: #ffad3b;
-        --shadow_color: #3d4528;
-        --really_dark_color: #313831;
-        --button_color: #66573b;
+        --shadow_color: #2e5c4e;
+        --really_dark_color: #313138;
+        --button_color: #5b92b3;
     }
 
     :root.blue {
-        --light_color: #a0a840;
-        --solid_color: #708028;
-        --accent_color: #d0d058;
-        --double_accent_color: #7ac04b;
-        --shadow_color: #1a6738;
-        --really_dark_color: #3b4323;
-        --button_color: #7f8d44;
+        --light_color: #65906f;
+        --solid_color: #233b24;
+        --accent_color: #4c6018;
+        --double_accent_color: #4d8528;
+        --shadow_color: #1b231e;
+        --really_dark_color: #1b1c19;
+        --button_color: #2d462e;
         
     }
 
@@ -80,7 +80,7 @@ body {
     display: inline-block;
     padding: 16px 32px;
 
-    /* background-color: var(--really_dark_color); */
+    background-color: var(--button_color);
     border-width: 2px 1px 16px 16px;
     border-style: solid;
     border-top-color: var(--light_color);
@@ -185,6 +185,9 @@ body {
     margin-bottom: 0;
 }
 
+.new_game_btn {
+    color: var(--double_accent_color);
+}
 
 .dashboard__new_game {
     display: flex;
