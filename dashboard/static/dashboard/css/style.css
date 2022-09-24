@@ -243,6 +243,7 @@ body {
 } */
 
 .popuptext {
+    color: var(--light_color);
     visibility: hidden;
     width: 50pxpx;
     background-color: var(--accent_color);
@@ -314,7 +315,10 @@ body {
     border-color: var(--accent_color) var(--accent_color) transparent var(--accent_color);
 }
 
+.no_games {
+    color: var(--accent_color);
+}
 
-
-
-
+.options_btn {
+    background-color: none;
+}
