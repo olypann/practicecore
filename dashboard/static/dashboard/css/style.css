@@ -7,12 +7,12 @@
     --really_dark_color: #74569b; */
 
     :root.pink {
-        --light_color: #d8bfd8;
-        --solid_color: #ffb3cb;
-        --accent_color: #f7ffae;
-        --double_accent_color: #96fbc7;
-        --shadow_color: #74569b;
-        --really_dark_color: #74569b;
+        --light_color: #ffaec9;
+        --solid_color: #fe5ba9;
+        --accent_color: #ffcfb9;
+        --double_accent_color: #b01550;
+        --shadow_color: #b01550;
+        --really_dark_color: #b01550;
     }
      
     :root.green {

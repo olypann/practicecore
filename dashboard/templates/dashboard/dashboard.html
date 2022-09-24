@@ -141,6 +141,8 @@
 
 
     <script>
+        const setTheme = theme => document.documentElement.className = theme;
+
         document.querySelector('#new_game_btn').onclick = function(e) {
                 console.log('it works')
                 var data = new FormData();
