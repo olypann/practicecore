@@ -1,18 +1,11 @@
 * {
-    color: #a3a29a;
+    color: var(--light_color);
     font-family: 'Press Start 2P', cursive;
 
-    /* black: #282328
-      pink: #c56981
-      purple: #545c7e
-      beige: #a3a29a
-      darker: #32364a
-     */
 }
 
 body {
-    background: #545c7e;
-    background: linear-gradient(90deg, #545c7e 30%, #545c7e 100%);
+    background: var(--solid_color);
 
 }
 
@@ -41,18 +34,22 @@ body {
 
 .a_btn {
   background: none;
-  color: #a3a29a;
+  color: var(--light_color);
   border-radius: 2px;
   height: 50px;
   width: 200px;
   font-size: 15px;
   transition: all 0.4s;
-  box-shadow: 0 10px 20px #32364a;
+  box-shadow: 0 10px 20px var(--shadow_color);
   margin: 5px;
   margin: auto;
-  border-width: 4px;
+  background-color: var(--button_color);
+  border-width: 2px 1px 16px 16px;
   border-style: solid;
-  border-color: #a3a29a #c56981 #c56981 #a3a29a;
+  border-top-color: var(--light_color);
+  border-right-color: var(--accent_color);
+  border-bottom-color: var(--accent_color);
+  border-left-color: var(--light_color);
   position: relative;
   margin: 20px;
 }
@@ -60,7 +57,7 @@ body {
 .a_btn:hover {
   transform: scale(1.05);
   cursor: pointer;
-  box-shadow: 0 10px 20px #32364a;
+  box-shadow: 0 10px 20px var(--shadow_color);
 }
 
 .a_btn:focus {
@@ -93,8 +90,8 @@ body {
   width: 700px; height: 140px;
   border-radius: 160px;
   transform: rotate(-6deg) rotateY(15deg);
-  background: #32364a;
-  color: #32364a;
+  background: var(--button_color);
+  color: var(--solid_color);
   font-size: 20px;
   text-align: center;
 
@@ -111,12 +108,12 @@ body {
   top: 0; right: 0; bottom: 0; left: 0;
   border-radius: inherit;
   transform: rotate(2deg) translate(30px, -10px) scale(1.02);
-  background: #c56981;
+  background: var(--button_color);
 }
 .speech-bubble:before {
   border: solid 0 transparent;
-  border-right: solid 3.5em #c56981;
-  border-bottom: solid .25em #32364a;
+  border-right: solid 3.5em var(--accent_color);
+  border-bottom: solid .25em var(--shadow_color);
   bottom: 0.1px; left: 650px;
   width: 40px; height: 50px;
   transform: rotate(15deg) skewX(75deg);
@@ -141,7 +138,7 @@ body {
   position:relative;
   top:-0.14em;
   left:10px;
-  color: #a3a29a;
+  color: var(--light_color);
 }
 
 /* ------------------------------------------------------------------------- */
@@ -153,8 +150,8 @@ body {
   width: 620px; height: 100px;
   border-radius: 160px;
   transform: rotate(-6deg) rotateY(15deg);
-  background: #32364a;
-  color: #32364a;
+  background: var(--button_color);
+  color: var(--accent_color);
   font-size: 15px;
   text-align: center;
 
@@ -174,12 +171,12 @@ body {
   top: 0; right: 0; bottom: 0; left: 0;
   border-radius: inherit;
   transform: rotate(2deg) translate(30px, -10px) scale(1.02);
-  background: #c56981;
+  background: var(--button_color);
 }
 .exit-bubble:before {
   border: solid 0 transparent;
-  border-right: solid 3.5em #c56981;
-  border-bottom: solid .25em #32364a;
+  border-right: solid 3.5em var(--accent_color);
+  border-bottom: solid .25em var(--shadow_color);
   /* bottom: 0.1px; left: 200px; */
   top: 0.1px; left: 600px;
   width: 40px; height: 25px;
@@ -190,9 +187,13 @@ body {
 .exit_btn {
   width: 210px;
   height: 30px;
-  border-width: 4px;
+  background-color: var(--button_color);
+  border-width: 2px 1px 16px 16px;
   border-style: solid;
-  border-color: #a3a29a #32364a #32364a #a3a29a;
+  border-top-color: var(--light_color);
+  border-right-color: var(--accent_color);
+  border-bottom-color: var(--accent_color);
+  border-left-color: var(--light_color);
   position: relative;
   background: none;
   margin-top: 20px;

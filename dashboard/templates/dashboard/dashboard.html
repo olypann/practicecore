@@ -33,37 +33,40 @@
             <div class="dashboard__columns">
 
                 <div class="dashboard__game_list">
-                    <ul class="game_list">
-                        {% if active_games %}
-                            {% for game in active_games %} 
-                                {% if game.player_1.user.id == user_id or game.player_2.user.id == user_id %}
-                                <li class="game_item"><p class="open_game" id="open_game--{{ game.id }}">
-                                    {% if game.player_1.user.id == user_id %}
-                                        {{game.player_2.user}},
-                                    {% else %}
-                                        {{game.player_1.user}},
-                                    {% endif%} {{ game.get_status_display }}</p></li>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif%}
-            
-                        {% if waiting_games %}
-                            {% for game in waiting_games %} 
-                                {% if game.player_1.user.id != user_id %}
-                                <li><p class="join_game" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif%}
-            
-                        {% if not waiting_games and not active_games %}
-                            <div class="no_games">
-                                <p>There are no games yet!</p>
-                                <p>You can create your own or come back later :)</p>
-                            </div>
-                            
-                        {% endif%}
-                            
-                    </ul>
+                    <div class="list">
+
+                        <ul class="game_list">
+                            {% if active_games %}
+                                {% for game in active_games %} 
+                                    {% if game.player_1.user.id == user_id or game.player_2.user.id == user_id %}
+                                    <li class="game_item"><p class="open_game" id="open_game--{{ game.id }}">
+                                        {% if game.player_1.user.id == user_id %}
+                                            {{game.player_2.user}},
+                                        {% else %}
+                                            {{game.player_1.user}},
+                                        {% endif%} {{ game.get_status_display }}</p></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif%}
+                
+                            {% if waiting_games %}
+                                {% for game in waiting_games %} 
+                                    {% if game.player_1.user.id != user_id %}
+                                    <li><p class="join_game" id="join_game--{{ game.id }}">{{game.player_1}}, {{ game.get_status_display }}</p></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif%}
+                
+                            {% if not waiting_games and not active_games %}
+                                <div class="no_games">
+                                    <p>There are no games yet!</p>
+                                    <p>You can create your own or come back later :)</p>
+                                </div>
+                                
+                            {% endif%}
+                                
+                        </ul>
+                    </div>
 
 
                     <div class="dashboard__buttons">
