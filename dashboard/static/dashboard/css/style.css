@@ -189,9 +189,10 @@ body {
 }
 
 
-.dashboard__game_list {
+.game_list {
   list-style: none;
   margin-bottom: 23px;
+  margin-right: 20px;
   height: 150px;
   width: 100%;
   overflow-y: scroll;

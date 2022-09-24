@@ -56,8 +56,11 @@
                         {% endif%}
             
                         {% if not waiting_games and not active_games %}
-                            <p>There are no games yet!</p>
-                            <p>You can create your own or come back later :)</p>
+                            <div class="no_games">
+                                <p>There are no games yet!</p>
+                                <p>You can create your own or come back later :)</p>
+                            </div>
+                            
                         {% endif%}
                             
                     </ul>
@@ -131,24 +134,7 @@
         document.querySelectorAll('.open_game').forEach(function(open_game) {
             open_game.onclick = function(e) {
             console.log(e.target.id.split('--')[1], '{{ user_id }}');
-
-            var data = new FormData();
-            data.append('user_id', '{{user_id}}');
-            fetch('/api/game/' + e.target.id.split('--')[1] + '/', {
-                method: 'PUT',
-                headers: {
-                'X-CSRFToken': '{{csrf_token}}',
-                },
-                body: data,
-                credentials: "same-origin",
-            }).then(res=>{
-                res.json().then(data=>{
-                    
-                    window.location.replace('/game/' + data.id);
-                });
-                
-            });
-            
+            window.location.replace('/game/' + e.target.id.split('--')[1]);
             }
         })
 
