@@ -153,49 +153,47 @@
                 const data = JSON.parse(e.data);
 
                     
-                if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
 
-                    if (data.message.type === 'players') {
-                        console.log('hello 2');
-                        console.log(data.message);
-                        user = data.message.current_player;
-                        enemy = data.message.enemy;
-                        document.querySelector('#current_user').innerText = user;
-                        document.querySelector('#enemy_user').innerText = enemy;
-                        console.log(user, enemy);
+                if (data.message.type === 'players') {
+                    console.log('hello 2');
+                    console.log(data.message);
+                    user = data.message.current_player;
+                    enemy = data.message.enemy;
+                    document.querySelector('#current_user').innerText = user;
+                    document.querySelector('#enemy_user').innerText = enemy;
+                    console.log(user, enemy);
 
-                        {% if game.words_1 %}
-                            var words_1 = {{ game.words_1|safe }};
-                        {% else %}
-                            var words_1 = [];
-                        {% endif %}
+                    {% if game.words_1 %}
+                        var words_1 = {{ game.words_1|safe }};
+                    {% else %}
+                        var words_1 = [];
+                    {% endif %}
 
-                        {% if game.words_2 %}
-                            var words_2 = {{ game.words_2|safe }};
-                        {% else %}
-                            var words_2 = [];
-                        {% endif %}
+                    {% if game.words_2 %}
+                        var words_2 = {{ game.words_2|safe }};
+                    {% else %}
+                        var words_2 = [];
+                    {% endif %}
 
-                        
-                        if ('{{game.player_1.user.username}}' == user) {
-                            words_1.forEach(word=>{
-                                document.querySelector('#window1').value += (word + '\n');
-                            }); 
-                            words_2.forEach(word=>{
-                                document.querySelector('#window2').value += (word + '\n');
-                            });
-                        }
-                        else {
-                            words_2.forEach(word=>{
-                                document.querySelector('#window1').value += (word + '\n');
-                            }); 
-                            words_1.forEach(word=>{
-                                document.querySelector('#window2').value += (word + '\n');
-                            });
-                        }
-                        console.log(words_1)
-                        console.log(words_2)
+                    
+                    if ('{{game.player_1.user.username}}' == user) {
+                        words_1.forEach(word=>{
+                            document.querySelector('#window1').value += (word + '\n');
+                        }); 
+                        words_2.forEach(word=>{
+                            document.querySelector('#window2').value += (word + '\n');
+                        });
                     }
+                    else {
+                        words_2.forEach(word=>{
+                            document.querySelector('#window1').value += (word + '\n');
+                        }); 
+                        words_1.forEach(word=>{
+                            document.querySelector('#window2').value += (word + '\n');
+                        });
+                    }
+                    console.log(words_1)
+                    console.log(words_2)
                 }
                 
 

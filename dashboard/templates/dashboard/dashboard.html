@@ -127,6 +127,12 @@
     
             };
 
+        document.querySelectorAll('.open_game').forEach(function(open_game) {
+            open_game.onclick = function(e) {
+            window.location.replace('/game/' + data.id);
+            }
+        })
+
 
         document.querySelectorAll('.join_game').forEach(function(join_game) {
             join_game.onclick = function(e) {

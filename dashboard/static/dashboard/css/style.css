@@ -117,12 +117,6 @@ body {
 
 
 
-
-
-
-
-
-
 .dashboard__game_list {
     
 }
@@ -185,7 +179,6 @@ body {
     border-right-color: var(--accent_color);
     border-bottom-color: var(--accent_color);
     border-left-color: var(--light_color);
-    background-color: var(--double_accent_color);
 }
 
 @media (max-width:1200px) {
