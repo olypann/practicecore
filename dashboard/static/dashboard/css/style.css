@@ -7,7 +7,7 @@
     --really_dark_color: #74569b; */
 
     :root.pink {
-        --light_color: #a3a29a;
+        --light_color: #ae9393;
         --solid_color: #7e546a;
         --accent_color: #984159;
         --double_accent_color: #e9c242;
@@ -18,10 +18,10 @@
      
     :root.green {
         --light_color: #e1c8bb;
-        --solid_color: #3f7ea2;
+        --solid_color: #265d8d;
         --accent_color: #425073;
-        --double_accent_color: #ffad3b;
-        --shadow_color: #2e5c4e;
+        --double_accent_color: #9e8722;
+        --shadow_color: #185f5a;
         --really_dark_color: #313138;
         --button_color: #5b92b3;
     }
@@ -147,14 +147,9 @@ body {
 }
 
 
-
-.dashboard__game_list {
-    
-}
-
 .game_list {
-    list-style: none;
-    margin: 0;
+    /* list-style: none; */
+    /* margin: 0; */
     margin-bottom: 40px;
     margin-left: 20px;
     width: 300px;
@@ -356,6 +351,3 @@ body {
     color: var(--accent_color);
 }
 
-.options_btn {
-    background: none;
-}
