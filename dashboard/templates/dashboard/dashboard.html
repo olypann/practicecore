@@ -90,9 +90,11 @@
                             <p>Sound: on/pff</p>
                         </div>
                         <div class="popuptext popuptext2 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="theme_modal">
-                            <p>Pink</p>
-                            <p>Green</p>
-                            <p>Black n White</p>
+                            <div class="toggle-container">
+                                <button class="theme-btn pink" onclick="setTheme('pink')" title="Pink mode">Pink</button>
+                                <button class="theme-btn green" onclick="setTheme('green')" title="Green mode">Green</button>
+                                <button class="theme-btn blue" onclick="setTheme('blue')" title="Blue mode">Blue</button>
+                            </div>
                         </div>
                         <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="games_modal">
                             <ul>
