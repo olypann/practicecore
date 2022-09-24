@@ -10,23 +10,26 @@
         --light_color: #a3a29a;
         --solid_color: #7e546a;
         --accent_color: #984159;
-        --shadow_color: #32364a;
+        --double_accent_color: #e9c242;
+        --shadow_color: #58303b;
         --really_dark_color: #282328;
     }
      
     :root.green {
-        --light_color: #9aa39a;
-        --solid_color: #547e63;
-        --accent_color: #b26f38;
-        --shadow_color: #324a3b;
+        --light_color: #819c81;
+        --solid_color: #1b6134;
+        --accent_color: #b98d68;
+        --double_accent_color: #f0a3d1;
+        --shadow_color: #0e4e4b;
         --really_dark_color: #232825;
     }
 
     :root.blue {
-        --light_color: #9aa1a3;
-        --solid_color: #47729b;
-        --accent_color: #444c77;
-        --shadow_color: #323e4a;
+        --light_color: #2ea3c3;
+        --solid_color: #293674;
+        --accent_color: #7f8a51;
+        --double_accent_color: #c13d3d;
+        --shadow_color: #40274f;
         --really_dark_color: #232328;
     }
 
@@ -149,6 +152,7 @@ body {
     list-style: none;
     margin: 0;
     margin-bottom: 40px;
+    margin-left: 20px;
 
     padding: 24px 40px;
 
@@ -268,10 +272,9 @@ body {
 } */
 
 .popuptext {
-    width: 100px;
+    width: 200px;
     color: var(--light_color);
     visibility: hidden;
-    width: 50pxpx;
     background-color: var(--accent_color);
     text-align: center;
     border-radius: 6px;
