@@ -346,14 +346,13 @@
 
 
     {% elif game.status == "P" %}
-    <div>The Game Is Over! Wait for results</div>
+
     <div class="gameover_container">
         <img class="bouncing_bunny" src="../../static/chat/images/big_bounce2.gif" alt="bouncing seabun">
         <div class="text_container">
-            <h1 class='main_text gameover_text'>The game has ended?</h1>
-            <p>uh oh!</p>
-            <p>play another one?</p>
-            <a href="/"><button class='a_btn'>continue</button></a>
+            <h1 class='main_text gameover_text'>This game has ended!</h1>
+            <p>Now wait for the results</p>
+            <a href="/"><button class='game_over_btn a_btn'>continue</button></a>
         </div>
         <img class="bouncing_bunny" src="../../static/chat/images/big_bounce.gif" alt="bouncing seabun">
     </div>

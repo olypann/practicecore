@@ -13,10 +13,12 @@ body {
     margin: 0 auto;
 }
 
+
+
 .game__task-text {
     text-align: center;
     font-size: 20px;
-    color: var(--accent_color);
+    color: var(--light_color);
 }
 
 .game__task-category,

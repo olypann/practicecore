@@ -64,6 +64,11 @@ body {
   outline: none;
 }
 
+.game_over_btn {
+  width: 200px;
+  height: 100px;
+}
+
 
 .text_container {
   width: 500px;
