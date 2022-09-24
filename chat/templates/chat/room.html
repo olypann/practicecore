@@ -153,47 +153,49 @@
                 const data = JSON.parse(e.data);
 
                     
+                if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
 
-                if (data.message.type === 'players') {
-                    console.log('hello 2');
-                    console.log(data.message);
-                    user = data.message.current_player;
-                    enemy = data.message.enemy;
-                    document.querySelector('#current_user').innerText = user;
-                    document.querySelector('#enemy_user').innerText = enemy;
-                    console.log(user, enemy);
+                    if (data.message.type === 'players') {
+                        console.log('hello 2');
+                        console.log(data.message);
+                        user = data.message.current_player;
+                        enemy = data.message.enemy;
+                        document.querySelector('#current_user').innerText = user;
+                        document.querySelector('#enemy_user').innerText = enemy;
+                        console.log(user, enemy);
 
-                    {% if game.words_1 %}
-                        var words_1 = {{ game.words_1|safe }};
-                    {% else %}
-                        var words_1 = [];
-                    {% endif %}
+                        {% if game.words_1 %}
+                            var words_1 = {{ game.words_1|safe }};
+                        {% else %}
+                            var words_1 = [];
+                        {% endif %}
 
-                    {% if game.words_2 %}
-                        var words_2 = {{ game.words_2|safe }};
-                    {% else %}
-                        var words_2 = [];
-                    {% endif %}
+                        {% if game.words_2 %}
+                            var words_2 = {{ game.words_2|safe }};
+                        {% else %}
+                            var words_2 = [];
+                        {% endif %}
 
-                    
-                    if ('{{game.player_1.user.username}}' == user) {
-                        words_1.forEach(word=>{
-                            document.querySelector('#window1').value += (word + '\n');
-                        }); 
-                        words_2.forEach(word=>{
-                            document.querySelector('#window2').value += (word + '\n');
-                        });
+                        
+                        if ('{{game.player_1.user.username}}' == user) {
+                            words_1.forEach(word=>{
+                                document.querySelector('#window1').value += (word + '\n');
+                            }); 
+                            words_2.forEach(word=>{
+                                document.querySelector('#window2').value += (word + '\n');
+                            });
+                        }
+                        else {
+                            words_2.forEach(word=>{
+                                document.querySelector('#window1').value += (word + '\n');
+                            }); 
+                            words_1.forEach(word=>{
+                                document.querySelector('#window2').value += (word + '\n');
+                            });
+                        }
+                        console.log(words_1)
+                        console.log(words_2)
                     }
-                    else {
-                        words_2.forEach(word=>{
-                            document.querySelector('#window1').value += (word + '\n');
-                        }); 
-                        words_1.forEach(word=>{
-                            document.querySelector('#window2').value += (word + '\n');
-                        });
-                    }
-                    console.log(words_1)
-                    console.log(words_2)
                 }
                 
 
@@ -250,25 +252,6 @@
                 messageInputDom.value = '';
             };
 
-        
-            // function changeTimeZone(date, timeZone) {
-            //     if (typeof date === 'string') {
-            //         return new Date(
-            //             new Date(date).toLocaleString('en-GB', {
-            //                 timeZone,
-            //             }),
-            //         );
-            //     }
-
-            //     return new Date(
-            //         date.toLocaleString('en-GB', {
-            //             timeZone,
-            //         }),
-            //     );
-            // }
-
-            // const ukDate = changeTimeZone(new Date(), 'Europe/London');
-            // console.log(ukDate); 
             
 
 
@@ -317,7 +300,7 @@
             <h1 class='main_text gameover_text'>The game has ended?</h1>
             <p>uh oh!</p>
             <p>play another one?</p>
-            <a href="/dashboard/"><button class='a_btn'>continue</button></a>
+            <a href="/"><button class='a_btn'>continue</button></a>
         </div>
         <img class="bouncing_bunny" src="../../static/game/images/big_bounce.gif" alt="bouncing seabun">
     </div>
