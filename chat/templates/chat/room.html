@@ -39,7 +39,10 @@
             <div class="waiting_bunny">
                 <img class="bunny" src="../../static/chat/images/bun.gif" alt="a seabun" />
             </div>
-    </div>
+
+        </div>
+
+        <embed name="game_music" id="myAudio" src="../../static/chat/music/chill_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
 
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
@@ -116,6 +119,8 @@
 
             </article>
         </div>
+
+        <embed name="game_music" id="myAudio" src="../../static/chat/music/game_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
 
 
 
@@ -295,16 +300,17 @@
     {% elif game.status == "P" %}
     <div>The Game Is Over! Wait for results</div>
     <div class="gameover_container">
-        <img class="bouncing_bunny" src="../../static/game/images/big_bounce2.gif" alt="bouncing seabun">
+        <img class="bouncing_bunny" src="../../static/chat/images/big_bounce2.gif" alt="bouncing seabun">
         <div class="text_container">
             <h1 class='main_text gameover_text'>The game has ended?</h1>
             <p>uh oh!</p>
             <p>play another one?</p>
             <a href="/"><button class='a_btn'>continue</button></a>
         </div>
-        <img class="bouncing_bunny" src="../../static/game/images/big_bounce.gif" alt="bouncing seabun">
+        <img class="bouncing_bunny" src="../../static/chat/images/big_bounce.gif" alt="bouncing seabun">
     </div>
-    <embed name="little bunny" id="myAudio" src="../../static/game/music/little_bunny.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
+    <!-- <embed name="little bunny" id="myAudio" src="../../static/game/music/little_bunny.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
+    <embed name="game_music" id="myAudio" src="../../static/chat/music/chill_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
 
     {% elif game.status == "F"%}
     <div>the game is finished</div>

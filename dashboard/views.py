@@ -16,6 +16,9 @@ def dashboard(request):
 
     waiting = Game.objects.filter(status='W').order_by('-id')
     active = Game.objects.filter(status='A').order_by('-id')
+    processing = Game.objects.filter(status='P').order_by('-id')
+    finished = Game.objects.filter(status='F').order_by('-id')
 
-    context = {'games': games, 'waiting_games': waiting, 'active_games': active, 'username': profile.user.username, 'user_id': profile.user.id}
+
+    context = {'games': games, 'processing': processing, 'finished_games': finished, 'waiting_games': waiting, 'active_games': active, 'username': profile.user.username, 'user_id': profile.user.id}
     return render(request, 'dashboard/dashboard.html', context=context)
