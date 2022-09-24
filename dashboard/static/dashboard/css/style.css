@@ -7,30 +7,30 @@
     --really_dark_color: #74569b; */
 
     :root.pink {
-        --light_color: #ffaec9;
-        --solid_color: #fe5ba9;
-        --accent_color: #ffcfb9;
-        --double_accent_color: #b01550;
-        --shadow_color: #b01550;
-        --really_dark_color: #b01550;
+        --light_color: #fca6ac;
+        --solid_color: #ff7d6e;
+        --accent_color: #e8e7cb;
+        --double_accent_color: #2176cc;
+        --shadow_color: #d14e3f;
+        --really_dark_color: #2176cc;
     }
      
     :root.green {
-        --light_color: #004c3d;
-        --solid_color: #ffeaf9;
-        --accent_color: #004c3d;
-        --double_accent_color: #004c3d;
-        --shadow_color: #ffeaf9;
-        --really_dark_color: #004c3d;
+        --light_color: #cd5f2a;
+        --solid_color: #f2ab37;
+        --accent_color: #d8ae8b;
+        --double_accent_color: #faf5d8;
+        --shadow_color: #bd7e19;
+        --really_dark_color: #21181b;
     }
 
     :root.blue {
-        --light_color: #f0eff4;
-        --solid_color: #66a1ff;
-        --accent_color: #fadda2;
+        --light_color: #6dbcb9;
+        --solid_color: #4888b7;
+        --accent_color: #8cefb6;
         --double_accent_color: #8ecde6;
-        --shadow_color: ##6b61ff;
-        --really_dark_color: ##6b61ff;
+        --shadow_color: #2f6e9b;
+        --really_dark_color: #6b61ff;
     }
 
 
