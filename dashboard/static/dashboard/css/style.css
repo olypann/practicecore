@@ -8,8 +8,8 @@
 
     :root.pink {
         --light_color: #a3a29a;
-        --solid_color: #545c7e;
-        --accent_color: #c56981;
+        --solid_color: #7e546a;
+        --accent_color: #984159;
         --shadow_color: #32364a;
         --really_dark_color: #282328;
     }
@@ -17,15 +17,15 @@
     :root.green {
         --light_color: #9aa39a;
         --solid_color: #547e63;
-        --accent_color: #c59269;
+        --accent_color: #b26f38;
         --shadow_color: #324a3b;
         --really_dark_color: #232825;
     }
 
     :root.blue {
         --light_color: #9aa1a3;
-        --solid_color: #546a7e;
-        --accent_color: #69c59a;
+        --solid_color: #47729b;
+        --accent_color: #444c77;
         --shadow_color: #323e4a;
         --really_dark_color: #232328;
     }
@@ -180,6 +180,7 @@ body {
 .dashboard__new_game {
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 
 .dashboard__buttons {
@@ -267,6 +268,7 @@ body {
 } */
 
 .popuptext {
+    width: 100px;
     color: var(--light_color);
     visibility: hidden;
     width: 50pxpx;
@@ -275,13 +277,13 @@ body {
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;
-    /* z-index: 1; */
-    /* bottom: -30px;
-    left: 140px;
+    z-index: 1;
+    bottom: -30px;
+    /* left: 140px; */
     margin-left: -80px;
   
     line-height: 20px;
-    font-size: 10px; */
+    font-size: 10px;
     overflow-y: scroll;
     height: 30px;
     animation: fadeIn 1s;
@@ -295,13 +297,13 @@ body {
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;
-    /* z-index: 1;
+    z-index: 1;
     bottom: -30px;
-    left: 195px;
+    /* left: 195px; */
     margin-left: -80px;
     animation: fadeIn 1s;
   
-    line-height: 20px; */
+    line-height: 20px;
     font-size: 10px;
     overflow-y: scroll;
     height: 30px;
@@ -315,14 +317,14 @@ body {
     border-radius: 6px;
     padding: 8px 0;
     position: absolute;
-    /* z-index: 1;
+    z-index: 1;
     bottom: -30px;
-    left: 250px;
+    /* left: 250px; */
     margin-left: -80px;
     animation: fadeIn 1s;
   
     line-height: 20px;
-    font-size: 10px; */
+    font-size: 10px;
     overflow-y: scroll;
     height: 30px;
 }
@@ -331,8 +333,8 @@ body {
 .popuptext::after {
     content: "";
     position: absolute;
-    /* top: 100%;
-    left: 50%; */
+    top: 100%;
+    left: 50%;
     margin-left: -5px;
     border-width: 10px;
     border-style: solid;
