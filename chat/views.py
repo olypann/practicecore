@@ -33,7 +33,7 @@ def room(request, room_name):
         game_data = game_data.json()
         print(game_data)
         print('проверка вьюшки после апи')
-        return render(request, 'chat/room.html', context={'game': game_data})
+        return render(request, 'chat/room.html', context={'game': game_data, 'room_name': room_name})
 
 
 
