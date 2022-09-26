@@ -11,6 +11,19 @@ from django.utils.timezone import now
 
 
 def room(request, room_name):
+    # try:
+    #     print(room_name)
+    #     game = Game.objects.get(id=int(room_name))
+
+    #     game_data = GameSerializer(game).data
+
+    #     return render(request, 'chat/room.html', {
+    #         'room_name': room_name,
+    #         'game': game_data,
+    #     })
+
+    # except:
+    #     return HttpResponse(f'game {room_name} not found!')
 
     print('проверка вьюшки')
 
@@ -20,7 +33,7 @@ def room(request, room_name):
         game_data = game_data.json()
         print(game_data)
         print('проверка вьюшки после апи')
-        return render(request, 'chat/room.html', context={'data': game_data})
+        return render(request, 'chat/room.html', context={'game': game_data})
 
 
 
