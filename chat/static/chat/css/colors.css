@@ -27,9 +27,9 @@
     }
 
     :root.blue {
-        --light_color: #544e68;
+        --light_color: #c05978;
         --solid_color: #203c56;
-        --accent_color: #8d697a;
+        --accent_color: #a0575e;
         --double_accent_color: #d8ab78;
         --shadow_color: #1d3150;
         --really_dark_color: #19191c;

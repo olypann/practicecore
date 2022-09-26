@@ -149,7 +149,7 @@
 
                     <div class="game__left">
                         <p id="username1" class="game__user"></p>
-                        <textarea class="game__list" id="window1" rows="20" style="background: transparent;" readonly></textarea><br>
+                        <textarea class="game__list" id="window1" rows="20" readonly></textarea><br>
 
                         {% csrf_token %}
                         <input id="message-input" class="game__input-word" type="text" size="100" style="background: transparent;"><br>
@@ -230,6 +230,10 @@
                         var words_2 = [];
                     {% endif %}
 
+                    console.log("WORDS");
+                    console.log(words_1);
+                    console.log(words_1);
+
                     
                     if ('{{game.player_1.user.username}}' == user) {
                         words_1.forEach(word=>{
@@ -247,8 +251,9 @@
                             document.querySelector('#window2').value += (word + '\n');
                         });
                     }
-                    console.log(words_1)
-                    console.log(words_2)
+
+                    console.log(words_1);
+                    console.log(words_2);
                 }
                 
 
@@ -350,7 +355,7 @@
     <div class="gameover_container">
         <img class="bouncing_bunny" src="../../static/chat/images/big_bounce2.gif" alt="bouncing seabun">
         <div class="text_container">
-            <h1 class='main_text gameover_text'>This game has ended!</h1>
+            <p class='main_text gameover_text'>This game has ended!</p>
             <p>Now wait for the results</p>
             <a href="/"><button class='game_over_btn a_btn'>continue</button></a>
         </div>

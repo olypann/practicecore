@@ -13,6 +13,9 @@ body {
     margin: 0 auto;
 }
 
+.game_list {
+    background: transparent;
+}
 
 
 .game__task-text {
@@ -237,3 +240,4 @@ body {
     border-radius: 10px;
     height: 10px;
 }
+
