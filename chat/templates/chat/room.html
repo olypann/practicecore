@@ -214,8 +214,8 @@
                     console.log(data.message);
                     user = data.message.current_player;
                     enemy = data.message.enemy;
-                    document.querySelector('#current_user').innerText = user;
-                    document.querySelector('#enemy_user').innerText = enemy;
+                    document.querySelector('#username1').innerText = user;
+                    document.querySelector('#username2').innerText = enemy;
                     console.log(user, enemy);
 
                     {% if game.words_1 %}
