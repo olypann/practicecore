@@ -11,19 +11,16 @@ from django.utils.timezone import now
 
 
 def room(request, room_name):
-    try:
-        print(room_name)
-        game = Game.objects.get(id=int(room_name))
 
-        game_data = GameSerializer(game).data
+    print('проверка вьюшки')
 
-        return render(request, 'chat/room.html', {
-            'room_name': room_name,
-            'game': game_data,
-        })
-
-    except:
-        return HttpResponse(f'game {room_name} not found!')
+    if request.method == 'GET':
+        #А так же достается id игры для того чтобы подставить его в ссылку страницы которую мы после отображаем
+        game_data = requests.get(f'https://practicecore.herokuapp.com/api/game/{room_name}')
+        game_data = game_data.json()
+        print(game_data)
+        print('проверка вьюшки после апи')
+        return render(request, 'chat/room.html', context={'data': game_data})
 
 
 
