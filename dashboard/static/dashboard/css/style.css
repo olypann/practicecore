@@ -48,6 +48,39 @@ body {
     gap: 40px;
 }
 
+@media (max-width:1200px) {
+    .dashboard__columns {
+        
+    }
+}
+
+@media (max-width:1000px) {
+    .dashboard__columns {
+        flex-direction: column-reverse;
+        gap: 32px;
+    }
+
+    .dashboard__btn {
+        margin-bottom: 0;
+    }
+
+}
+
+@media (max-width:580px) {
+    .dashboard__buttons {
+        flex-direction: column;
+    }
+
+    .dashboard__columns {
+        font-size: 16px;
+    }
+
+    .game_btn {
+        font-size: 18px;
+    }
+
+}
+
 .dashboard__game_list {
     display: flex;
     flex-direction: column;
@@ -99,6 +132,13 @@ body {
     font-size: 48px;
     line-height: 1.6em;
     color: var(--accent_color);
+
+}
+
+@media (max-width:1200px) {
+    .dashboard__btn {
+        font-size: 32px;
+    }
 
 }
 
@@ -168,7 +208,8 @@ body {
 }
 
 .bunny {
-    width: 80px;
+    margin-top: 20px;
+    width: 200px;
 }
 
 .dashboard__modal {
@@ -204,11 +245,62 @@ body {
     line-height: 2em;
     text-align: center;
     color: var(--light_color);
-  }
+}
+
+.game__close-btn {
+    text-align: right;
+    /* position: relative; */
+    background: none;
+    border: none;
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.game__close-btn::before {
+    position: absolute;
+    top: 4px;
+    right: 25px;
+    content: '';
+    display: block;
+    width: 2px;
+    height: 40px;
+    background: var(--button_color);
+    transform: rotate(45deg);
+    
+}
+
+.game__close-btn::after {
+    position: absolute;
+    top: 4px;
+    right: 25px;
+    content: '';
+    display: block;
+    width: 2px;
+    height: 40px;
+    background: var(--button_color);
+    transform: rotate(-45deg);
+    
+}
+
+
+.game__close-btn:active {
+    color: var(--button_color);
+}
+
+.game__close-btn:hover,
+.game__close-btn:active,
+.game__close-btn:focus {
+    border-color: var(--accent_color);
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+}
 
 
 
-  @keyframes squiggly-anim {
+@keyframes squiggly-anim {
     0% {
       filter: url("#squiggly-0");
     }
@@ -224,5 +316,5 @@ body {
     100% {
       filter: url("#squiggly-4");
     }
-  }
+}
   

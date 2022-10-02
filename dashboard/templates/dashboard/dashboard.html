@@ -70,11 +70,11 @@
 
                     <div class="dashboard__buttons">
 
-                        <button class="options_btn game_btn" id="sound_btn" onclick="myFunctionSound()">Sound</button>
+                        <button class="dashboard__btn game_btn" id="sound_btn" onclick="myFunctionSound()">Sound</button>
 
-                        <button class="options_btn game_btn" id="theme_btn" onclick="myFunctionTheme()">Themes</button>
+                        <button class="dashboard__btn game_btn" id="theme_btn" onclick="myFunctionTheme()">Themes</button>
                         
-                        <button class="options_btn game_btn" id="games_btn" onclick="myFunctionGames()">Games</button>
+                        <button class="dashboard__btn game_btn" id="games_btn" onclick="myFunctionGames()">Games</button>
 
                     </div>
 
@@ -101,9 +101,11 @@
 
     <div class="dashboard__modals">
         <div class="popuptext dashboard__modal dashboard__modal--hidden" type="hidden" id="sound_modal">
+            <button id="modal-close" class="game__close-btn" onclick="myFunctionModals()"">Close</button>
             <div id="audio-player-container">
-                <audio src="../../static/dashboard/music/index_music.mp3" preload="metadata" loop></audio>
                 <p>Audio Player</p>
+                <audio src="../../static/dashboard/music/index_music.mp3" hidden="true" autostart="true" preload="metadata" loop></audio>
+                <!-- <embed name="sad lion" id="myAudio" src="../../static/dashboard/music/index_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
                 <button id="play-icon"></button>
                 <output id="volume-output">100</output>
                 <input type="range" id="volume-slider" max="100" value="100">
@@ -111,6 +113,7 @@
             </div>
         </div>
         <div class="popuptext popuptext2 dashboard__modal dashboard__modal--hidden" type="hidden" id="theme_modal">
+            <button id="modal-close" class="game__close-btn" onclick="myFunctionModals()"">Close</button>
             <div class="toggle-container">
                 <button class="theme-btn pink" onclick="setTheme('pink')" title="Pink mode">Pink</button>
                 <button class="theme-btn green" onclick="setTheme('green')" title="Green mode">Green</button>
@@ -118,6 +121,7 @@
             </div>
         </div>
         <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" id="games_modal">
+            <button id="modal-close" class="game__close-btn" onclick="myFunctionModals()"">Close</button>
             <ul>
                 {% for game in finished_games %}
                     {% if game.player_1.user.username == user %}
@@ -246,6 +250,20 @@
         var sound = false;
         var games = false;
         var theme = false;
+
+        function myFunctionModals() {
+            var popup_g = document.getElementById("games_modal");
+            var popup_s = document.getElementById("sound_modal");
+            var popup_t = document.getElementById("theme_modal");
+
+            sound = false;
+            games = false;
+            theme = false;
+            popup_g.style.visibility = 'hidden';
+            popup_t.style.visibility = 'hidden';
+            popup_s.style.visibility = 'hidden';
+
+        }
 
         // When the user clicks on <div>, open the popup
         function myFunctionGames() {
