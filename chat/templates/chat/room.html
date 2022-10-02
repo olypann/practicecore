@@ -154,12 +154,12 @@
                         {% csrf_token %}
                         <input id="message-input" class="game__input-word" type="text" size="100" style="background: transparent;"><br>
                         <p id="message-error" class="message"></p>
-                        <input type="button" id="message-submit" class="game__send-btn" value="Send">  
+                        <input type="button" id="message-submit" class="game_btn" value="Send">  
                     </div>
 
                     <div class="game__right game__words">
                         <p id="username2" class="game__user"></p>
-                        <div id="window2" class="game__list" cols="100" rows="20" readonly></div><br>
+                        <div id="window2" class="game__list" cols="100" rows="20" style="background: transparent;" readonly></div><br>
                     </div>
 
                     </div>

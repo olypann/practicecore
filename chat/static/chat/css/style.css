@@ -172,23 +172,36 @@ body {
     outline: none;
 }
 
-.game__send-btn {
-    background: var(--button_color);
-    border: none;
+.game_btn {
     width: 64px;
-    height: 34px;
-    font-size: 10px;
+    height: 32px;
+    display: inline-block;
+    padding: 16px 32px;
+
+    background-color: var(--button_color);
+    border-width: 2px 1px 16px 16px;
+    border-style: solid;
+    border-top-color: var(--light_color);
+    border-right-color: var(--accent_color);
+    border-bottom-color: var(--accent_color);
+    border-left-color: var(--light_color);
+
+    text-decoration: none;
+    color: var(--light_color);
+    font-size: 24px;
+
+    transition: 0.05s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+
+.game_btn:hover {
+    transform: scale(0.95);
+    cursor: pointer;
     box-shadow: 0 10px 20px var(--shadow_color);
-    border-radius: 8px;
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    outline: none;
 }
 
-.game__send-btn:hover {
-    transform: translateY(-5px);
-}
-
-.game__send-btn:active {
+.game_btn:focus {
     outline: none;
 }
 
