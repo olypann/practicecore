@@ -6,7 +6,7 @@
     --shadow_color: #74569b;
     --really_dark_color: #74569b; */
 
-    :root.pink {
+    /* :root.pink {
         --light_color: #ae9393;
         --solid_color: #7e546a;
         --accent_color: #984159;
@@ -14,10 +14,20 @@
         --shadow_color: #58303b;
         --really_dark_color: #282328;
         --button_color: #a26585;
+    } */
+
+    :root.pink {
+        --light_color: #cfb2b2;
+        --solid_color: #ba6e89;
+        --accent_color: #984159;
+        --double_accent_color: #d7a528;
+        --shadow_color: #974d6e;
+        --really_dark_color: #282328;
+        --button_color: #b57898;
     }
      
     :root.green {
-        --light_color: #65906f;
+        --light_color: #4d835a;
         --solid_color: #233b24;
         --accent_color: #526917;
         --double_accent_color: #529129;
@@ -27,12 +37,12 @@
     }
 
     :root.blue {
-        --light_color: #c05978;
+        --light_color: #db6d8e;
         --solid_color: #203c56;
-        --accent_color: #a0575e;
+        --accent_color: #a84848;
         --double_accent_color: #d8ab78;
-        --shadow_color: #1d3150;
+        --shadow_color: #182c4b;
         --really_dark_color: #19191c;
-        --button_color: #2b4964;
+        --button_color: #264b75;
         
     }

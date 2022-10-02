@@ -58,7 +58,7 @@
                         {% endif%}
             
                         {% if not waiting_games and not active_games %}
-                            <div class="no_games">
+                            <div>
                                 <p>There are no games yet!</p>
                                 <p>You can create your own or come back later :)</p>
                             </div>
@@ -84,51 +84,92 @@
                 <div class="dashboard__new_game">
                     <div class="dashboard__btn new_game_btn game_btn" id="new_game_btn">New Game!</div>
 
-                    <div class="dashboard__modals">
-                        <div class="popuptext dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="sound_modal">
-                            <p>Music: on/pff</p>
-                            <p>Sound: on/pff</p>
-                        </div>
-                        <div class="popuptext popuptext2 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="theme_modal">
-                            <div class="toggle-container">
-                                <button class="theme-btn pink" onclick="setTheme('pink')" title="Pink mode">Pink</button>
-                                <button class="theme-btn green" onclick="setTheme('green')" title="Green mode">Green</button>
-                                <button class="theme-btn blue" onclick="setTheme('blue')" title="Blue mode">Blue</button>
-                            </div>
-                        </div>
-                        <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" style="visibility:hidden" id="games_modal">
-                            <ul>
-                                {% for game in finished_games %}
-                                    {% if game.player_1.user.username == user %}
-                                        <li>{{game.player_2}}, {{ game.get_status_display }}</li>
-                                    {% else %}
-                                        <li>{{game.player_1}}, {{ game.get_status_display }}</li>
-                                    {% endif %}
-                                {% endfor %}
-
-                                {% for game in processing_games %}
-                                    {% if game.player_1.user.username == user %}
-                                        <li>{{game.player_2}}, {{ game.get_status_display }}</li>
-                                    {% else %}
-                                        <li>{{game.player_1}}, {{ game.get_status_display }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
+                    <div class="dashboard__bunny">
+                        <img class="bunny" src="../../static/dashboard/images/bun.gif" alt="a bun">
                     </div>
-
-                    <img class="bunny" src="../../static/dashboard/images/bun.gif" alt="a bun">
                 </div>
 
 
             </div>
 
             <!-- <embed name="sad lion" id="myAudio" src="../../static/dashboard/music/shark.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
-            <embed name="sad lion" id="myAudio" src="../../static/dashboard/music/index_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%">
+            <!-- <embed name="sad lion" id="myAudio" src="../../static/dashboard/music/index_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
 
 
         </main>
     </div>
+
+    <div class="dashboard__modals">
+        <div class="popuptext dashboard__modal dashboard__modal--hidden" type="hidden" id="sound_modal">
+            <div id="audio-player-container">
+                <audio src="../../static/dashboard/music/index_music.mp3" preload="metadata" loop></audio>
+                <p>Audio Player</p>
+                <button id="play-icon"></button>
+                <output id="volume-output">100</output>
+                <input type="range" id="volume-slider" max="100" value="100">
+                <button id="mute-icon"></button>
+            </div>
+        </div>
+        <div class="popuptext popuptext2 dashboard__modal dashboard__modal--hidden" type="hidden" id="theme_modal">
+            <div class="toggle-container">
+                <button class="theme-btn pink" onclick="setTheme('pink')" title="Pink mode">Pink</button>
+                <button class="theme-btn green" onclick="setTheme('green')" title="Green mode">Green</button>
+                <button class="theme-btn blue" onclick="setTheme('blue')" title="Blue mode">Blue</button>
+            </div>
+        </div>
+        <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" id="games_modal">
+            <ul>
+                {% for game in finished_games %}
+                    {% if game.player_1.user.username == user %}
+                        <li>{{game.player_2}}, {{ game.get_status_display }}</li>
+                    {% else %}
+                        <li>{{game.player_1}}, {{ game.get_status_display }}</li>
+                    {% endif %}
+                {% endfor %}
+
+                {% for game in processing_games %}
+                    {% if game.player_1.user.username == user %}
+                        <li>{{game.player_2}}, {{ game.get_status_display }}</li>
+                    {% else %}
+                        <li>{{game.player_1}}, {{ game.get_status_display }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+          
+              
+              <filter id="squiggly-0">
+                <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
+                <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="4" />
+              </filter>
+              <filter id="squiggly-1">
+                <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+              </filter>
+              
+              <filter id="squiggly-2">
+                <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" />
+              </filter>
+              <filter id="squiggly-3">
+                <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+              </filter>
+              
+              <filter id="squiggly-4">
+                <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" />
+              </filter>
+            </defs> 
+          </svg>
+    </div>
+    
 
     
 
@@ -287,6 +328,19 @@
           }
             
         }
+
+
+        const audio = document.querySelector('audio');
+
+        const volumeSlider = document.getElementById('volume-slider');
+        const outputContainer = document.getElementById('volume-output');
+
+        volumeSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+
+            outputContainer.textContent = value;
+            audio.volume = value / 100;
+        });
 
 
     </script>
