@@ -104,7 +104,7 @@
             <button id="modal-close" class="game__close-btn" onclick="myFunctionModals()"">Close</button>
             <div id="audio-player-container">
                 <p>Audio Player</p>
-                <audio src="../../static/dashboard/music/index_music.mp3" hidden="true" autostart="true" preload="metadata" loop></audio>
+                <audio src="../../static/dashboard/music/index_music.mp3" hidden="true" autostart="true" preload="none" loop></audio>
                 <!-- <embed name="sad lion" id="myAudio" src="../../static/dashboard/music/index_music.mp3" loop="True" hidden="true" autostart="true" preload="none" volume="50%"> -->
                 <button id="play-icon"></button>
                 <output id="volume-output">100</output>
@@ -133,10 +133,10 @@
                 {% endfor %}
 
                 {% for game in processing_games %}
-                    {% if game.player_1.user.username == user %}
-                        <li>{{game.player_2}}, {{ game.get_status_display }}</li>
+                    {% if game.player_1.user.id == user_id %}
+                        <li>{{game.player_2.user}}, {{ game.get_status_display }}</li>
                     {% else %}
-                        <li>{{game.player_1}}, {{ game.get_status_display }}</li>
+                        <li>{{game.player_1.user}}, {{ game.get_status_display }}</li>
                     {% endif %}
                 {% endfor %}
             </ul>
