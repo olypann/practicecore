@@ -212,6 +212,13 @@ body {
     width: 200px;
 }
 
+@media (max-width:1000px) {
+    .bunny {
+        
+    }
+
+}
+
 .dashboard__modal {
     /* opacity: 0; */
 }

@@ -123,11 +123,12 @@
         <div class="popuptext popuptext3 dashboard__modal dashboard__modal--hidden" type="hidden" id="games_modal">
             <button id="modal-close" class="game__close-btn" onclick="myFunctionModals()"">Close</button>
             <ul>
+
                 {% for game in finished_games %}
-                    {% if game.player_1.user.username == user %}
-                        <li>{{game.player_2}}, {{ game.get_status_display }}</li>
+                    {% if game.player_1.user.id == user_id %}
+                        <li>{{game.player_2.user}}, {{ game.get_status_display }}</li>
                     {% else %}
-                        <li>{{game.player_1}}, {{ game.get_status_display }}</li>
+                        <li>{{game.player_1.user}}, {{ game.get_status_display }}</li>
                     {% endif %}
                 {% endfor %}
 
