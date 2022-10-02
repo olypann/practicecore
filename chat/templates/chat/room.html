@@ -149,7 +149,7 @@
 
                     <div class="game__left">
                         <p id="username1" class="game__user"></p>
-                        <div class="game__list" id="window1" rows="20" readonly></div><br>
+                        <textarea class="game__list" id="window1" rows="20" readonly></textarea><br>
 
                         {% csrf_token %}
                         <input id="message-input" class="game__input-word" type="text" size="100" style="background: transparent;"><br>
@@ -159,7 +159,7 @@
 
                     <div class="game__right game__words">
                         <p id="username2" class="game__user"></p>
-                        <div id="window2" class="game__list" cols="100" rows="20" style="background: transparent;" readonly></div><br>
+                        <textarea id="window2" class="game__list" cols="100" rows="20" style="background: transparent;" readonly></textarea><br>
                     </div>
 
                     </div>
