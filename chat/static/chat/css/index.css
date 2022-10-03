@@ -65,8 +65,8 @@ body {
 }
 
 .game_over_btn {
-  width: 200px;
-  height: 100px;
+  width: 250px;
+  height: 80px;
 }
 
 
@@ -140,14 +140,41 @@ body {
   opacity:0;
 }
 
-.console-underscore {
-  display:inline-block;
-  position:relative;
-  top:-0.14em;
-  left:10px;
-  color: var(--light_color);
+.waiting_text {
+  font-size: 32px;
+  color: var(--double_accent_color);
+  animation: squiggly-anim 0.80s linear infinite;
 }
 
+.exit_text {
+  font-size: 32px;
+  color: var(--double_accent_color);
+  animation: squiggly-anim 0.80s linear infinite;
+}
+
+.exit_waiting_btn {
+  width: 210px;
+  height: 30px;
+  background-color: var(--button_color);
+  border-width: 2px 1px 16px 16px;
+  border-style: solid;
+  border-top-color: var(--light_color);
+  border-right-color: var(--accent_color);
+  border-bottom-color: var(--accent_color);
+  border-left-color: var(--light_color);
+  position: relative;
+  background: none;
+  margin-top: 20px;
+}
+
+.exit_waiting_btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.exit_waiting_btn:focus {
+  outline: none;
+}
 /* ------------------------------------------------------------------------- */
 
 .exit-bubble {
@@ -236,13 +263,13 @@ body {
 .gameover_text1 {
   font-size: 32px;
   color: var(--double_accent_color);
-  animation: squiggly-anim 0.34s linear infinite;
+  animation: squiggly-anim 0.80s linear infinite;
 }
 
 .gameover_text2 {
-  font-size: 32px;
+  font-size: 16px;
   color: var(--accent_color);
-  animation: squiggly-anim 0.34s linear infinite;
+  animation: squiggly-anim 0.80s linear infinite;
 }
 
 @keyframes squiggly-anim {
