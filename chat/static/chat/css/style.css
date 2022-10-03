@@ -81,9 +81,14 @@ body {
 }
 
 .game__list {
+    border: none;
+    overflow: auto;
+    outline: none;
+
     list-style: none;
     resize: none;
-    margin-bottom: 23px;
+    margin-bottom: 24px;
+    margin-bottom: 24px;
     height: 150px;
     width: 100%;
     overflow-y: scroll;
@@ -93,6 +98,7 @@ body {
     border-right-color: var(--accent_color);
     border-bottom-color: var(--accent_color);
     border-left-color: var(--light_color);
+    background-color: none;
 
     line-height: 20px;
     font-size: 10px;
