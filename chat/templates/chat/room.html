@@ -355,8 +355,8 @@
     <div class="gameover_container">
         <img class="bouncing_bunny" src="../../static/chat/images/big_bounce2.gif" alt="bouncing seabun">
         <div class="text_container">
-            <p class='main_text gameover_text'>This game has ended!</p>
-            <p class='main_text gameover_text'>Now wait for the results</p>
+            <p class='main_text gameover_text1'>This game has ended!</p>
+            <p class='main_text gameover_text2'>Now wait for the results</p>
             <a href="/"><button class='game_over_btn a_btn'>continue</button></a>
         </div>
         <img class="bouncing_bunny" src="../../static/chat/images/big_bounce.gif" alt="bouncing seabun">
@@ -373,6 +373,35 @@
         <div> status undefined </div>
 
     {% endif %}
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+      
+          
+          <filter id="squiggly-0">
+            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
+            <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="4" />
+          </filter>
+          <filter id="squiggly-1">
+            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+          </filter>
+          
+          <filter id="squiggly-2">
+            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" />
+          </filter>
+          <filter id="squiggly-3">
+            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+          </filter>
+          
+          <filter id="squiggly-4">
+            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" />
+          </filter>
+        </defs> 
+      </svg>
 
     
 

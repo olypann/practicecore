@@ -87,7 +87,7 @@ body {
     margin-bottom: 24px;
     margin-right: 24px;
     height: 150px;
-    width: 80%;
+    width: 85%;
     overflow-y: scroll;
     border-width: 4px 3px 10px 10px;
     border-style: solid;
@@ -189,10 +189,9 @@ body {
 
     text-decoration: none;
     color: var(--light_color);
-    font-size: 24px;
+    font-size: 20px;
 
     transition: 0.05s cubic-bezier(0.075, 0.82, 0.165, 1);
-
 }
 
 
@@ -209,12 +208,10 @@ body {
 .game__send-btn:hover,
 .game__send-btn:active,
 .game__send-btn:focus {
-    border: none;
+    /* border: none; */
     cursor: pointer;
     outline: none;
 }
-
-
 
 
 .game__input-word {

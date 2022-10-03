@@ -233,11 +233,35 @@ body {
 }
 
 
-.gameover_text {
-  font-size: 64px;
-  color: var(--accent_color);
+.gameover_text1 {
+  font-size: 32px;
+  color: var(--double_accent_color);
+  animation: squiggly-anim 0.34s linear infinite;
 }
 
+.gameover_text2 {
+  font-size: 32px;
+  color: var(--accent_color);
+  animation: squiggly-anim 0.34s linear infinite;
+}
+
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
+}
 
 
 
