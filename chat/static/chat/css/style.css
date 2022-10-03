@@ -13,9 +13,6 @@ body {
     margin: 0 auto;
 }
 
-.game_list {
-    background: transparent;
-}
 
 
 .game__task-text {
@@ -90,7 +87,7 @@ body {
     margin-bottom: 24px;
     margin-right: 24px;
     height: 150px;
-    width: 100%;
+    width: 80%;
     overflow-y: scroll;
     border-width: 4px 3px 10px 10px;
     border-style: solid;
@@ -101,7 +98,7 @@ body {
     background: transparent;
 
     line-height: 20px;
-    font-size: 10px;
+    font-size: 14px;
     
 }
 
