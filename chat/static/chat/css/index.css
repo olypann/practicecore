@@ -88,7 +88,7 @@ body {
 }
 
 
-.speech-bubble {
+/* .speech-bubble {
   position: relative;
   margin: .5em auto;
   padding: 1em;
@@ -123,6 +123,41 @@ body {
   width: 40px; height: 50px;
   transform: rotate(15deg) skewX(75deg);
   border-radius: 30px;
+} */
+
+section { 
+  min-height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+section { 
+  padding: 3rem; 
+}
+section:nth-of-type(1) {
+    background: #d52b21;
+}
+section:nth-of-type(2) {
+    background: #fff;
+}
+section:nth-of-type(3) {
+  background: #0388fe;
+}
+blockquote.bubble { 
+	background-position: center;
+  background-repeat: no-repeat !important;
+	background-size: 100% 100%;
+  margin: 0 auto;
+	text-align: center;
+	height: 0;
+	box-sizing: content-box;
+	line-height: 1;
+}
+blockquote.speech {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg); 
+  width: 25%;
+  padding-top: 6%;
+	padding-bottom: 20%;
 }
 
 .waiting_bunny {
