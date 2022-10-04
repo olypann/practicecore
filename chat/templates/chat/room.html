@@ -77,7 +77,20 @@
         };
 
         window.addEventListener("beforeunload", function(e){
-            pass
+            fetch('/api/game/{{ game.id }}/', {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': '{{csrf_token}}',
+                },
+                credentials: "same-origin",
+            })
+            .then(res => {
+                res.json()
+                .then(data => {
+                    console.log(data);
+                    window.location.reload();
+                });
+            });
         }, false);
 
         consoleText(['You are in the waiting room.', 'Please wait for another player :)'], 'text',['#a3a29a']);
