@@ -56,7 +56,9 @@ def game_view(request, game_id):
     
     
 
-class NewGameView(APIView):
+
+
+class GameView(APIView):
     def post(self, request):
         print('waiting class 2')
         try:
@@ -77,11 +79,6 @@ class NewGameView(APIView):
         except Exception as e:
             print(e)
             return Response({'error': str(e)}, status=500)
-
-
-
-
-class GameView(APIView):
     #Создаем функцию get которая принимает на вход id игры и контекст в виде request и с помощью этого достает слова для каждого игрока
     def get(self, request, game_id):
         print('проверка апи')
@@ -127,6 +124,16 @@ class GameView(APIView):
         except Exception as e:
             return Response({'status': 'error',
                              'error': str(e)})
+
+    def delete(self, request, game_id):
+
+        game = Game.objects.filter(id=game_id)
+        game_data = GameSerializer(game).data
+
+        game.delete()
+
+        return Response(game_data, status=200)
+
 
 
     def put(self, request, game_id):

@@ -27,7 +27,7 @@ urlpatterns = [
 
     # path('api/game/<str:game_id>/addword/', GameWordView.as_view()),
 
-    path('api/game/', NewGameView.as_view()),
+    path('api/game/', GameView.as_view()),
     path('api/game/<str:game_id>/', GameView.as_view()),
     path('api/gameover/<str:game_id>/', GameOverView.as_view()),
     

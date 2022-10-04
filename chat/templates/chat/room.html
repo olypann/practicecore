@@ -76,6 +76,10 @@
             console.error('Chat socket closed unexpectedly');
         };
 
+        window.addEventListener("beforeunload", function(e){
+            pass
+        }, false);
+
         consoleText(['You are in the waiting room.', 'Please wait for another player :)'], 'text',['#a3a29a']);
 
         function consoleText(words, id, colors) {

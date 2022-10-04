@@ -33,16 +33,6 @@ body {
 }
 
 .a_btn {
-  background: none;
-  color: var(--light_color);
-  border-radius: 2px;
-  height: 50px;
-  width: 200px;
-  font-size: 15px;
-  transition: all 0.4s;
-  box-shadow: 0 10px 20px var(--shadow_color);
-  margin: 5px;
-  margin: auto;
   background-color: var(--button_color);
   border-width: 2px 1px 16px 16px;
   border-style: solid;
@@ -51,7 +41,8 @@ body {
   border-bottom-color: var(--accent_color);
   border-left-color: var(--light_color);
   position: relative;
-  margin: 20px;
+  background: none;
+  margin-top: 20px;
 }
 
 .a_btn:hover {
@@ -63,6 +54,7 @@ body {
 .a_btn:focus {
   outline: none;
 }
+
 
 .game_over_btn {
   width: 250px;
@@ -154,7 +146,7 @@ body {
 
 .exit_waiting_btn {
   width: 210px;
-  height: 30px;
+  height: 60px;
   background-color: var(--button_color);
   border-width: 2px 1px 16px 16px;
   border-style: solid;
@@ -165,6 +157,7 @@ body {
   position: relative;
   background: none;
   margin-top: 20px;
+  font-size: 16px;
 }
 
 .exit_waiting_btn:hover {
