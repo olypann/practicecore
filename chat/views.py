@@ -128,11 +128,12 @@ class GameView(APIView):
     def delete(self, request, game_id):
 
         game = Game.objects.filter(id=game_id)
-        game_data = GameSerializer(game).data
 
-        game.delete()
+        if game:
+            game_data = GameSerializer(game[0]).data
+            game[0].delete()
 
-        return Response(game_data, status=200)
+            return Response(game_data, status=200)
 
 
 
