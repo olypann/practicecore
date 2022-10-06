@@ -29,7 +29,7 @@
         
                 <div class = "main_text">
                     <span id='text'></span><div class='exit_text'>Want to go back to the main menu?</div>
-                    <a href="/"><button id='exit-waiting' class='exit_waiting_btn'>Click Here!</button></a>
+                    <button id='exit-waiting' class='exit_waiting_btn'>Click Here!</button>
                 </div>
             </div>
             
@@ -76,7 +76,7 @@
             console.error('Chat socket closed unexpectedly');
         };
 
-        window.addEventListener("beforeunload", function(e){
+        document.querySelector('#exit_waiting').onclick = function (e) {
             fetch('/api/game/{{ game.id }}/', {
                 method: 'DELETE',
                 headers: {
@@ -88,10 +88,30 @@
                 res.json()
                 .then(data => {
                     console.log(data);
-                    window.location.reload();
+                    window.location.replace('/');
                 });
+
             });
-        }, false);
+
+        };
+
+
+        // window.addEventListener("beforeunload", function(e){
+        //     fetch('/api/game/{{ game.id }}/', {
+        //         method: 'DELETE',
+        //         headers: {
+        //             'X-CSRFToken': '{{csrf_token}}',
+        //         },
+        //         credentials: "same-origin",
+        //     })
+        //     .then(res => {
+        //         res.json()
+        //         .then(data => {
+        //             console.log(data);
+        //         });
+        //     });
+        //     // window.location.reload();
+        // }, false);
 
         consoleText(['You are in the waiting room.', 'Please wait for another player :)'], 'text',['#a3a29a']);
 
