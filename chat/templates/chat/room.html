@@ -76,7 +76,7 @@
             console.error('Chat socket closed unexpectedly');
         };
 
-        document.querySelector('#exit_waiting').onclick = function (e) {
+        document.querySelector('#exit_waiting_btn').onclick = function (e) {
             fetch('/api/game/{{ game.id }}/', {
                 method: 'DELETE',
                 headers: {
