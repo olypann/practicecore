@@ -197,7 +197,21 @@
         const setTheme = theme => {
             document.documentElement.className = theme;
             localStorage.setItem('theme', theme);
+
+
         };
+
+        window.addEventListener('load', (event) => {
+            website_theme = localStorage.getItem('theme')
+            console.log(website_theme)
+            if (!website_theme) {
+                console.log("default theme")
+                localStorage.setItem('theme', 'pink');
+                website_theme = 'pink'
+            }
+
+            setTheme(website_theme)
+        });
 
 
         document.querySelector('#new_game_btn').onclick = function(e) {
